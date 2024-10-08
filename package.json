@@ -1,0 +1,27 @@
+{
+  "name": "maxcare",
+  "version": "1.0.0",
+  "description": "Hospital Management System",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/shivanshu11092003/MaxCareHMS.git"
+  },
+  "author": "Shivanshu Gupta",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shivanshu11092003/MaxCareHMS/issues"
+  },
+  "homepage": "https://github.com/shivanshu11092003/MaxCareHMS#readme",
+  "dependencies": {
+    "@uirouter/angularjs": "^1.1.1",
+    "angular": "^1.8.2",
+    "bootstrap": "^5.3.3",
+    "bootstrap-icons": "^1.11.3",
+    "live-server": "^1.2.2",
+    "sweetalert2": "^11.14.1"
+  }
+}
