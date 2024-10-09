@@ -7,7 +7,7 @@
             <img src="../../hospital-CRM1.jpg" class="rounded mx-auto d-block mt-2" style="height: 20rem; width: 40rem;" alt="...">
         </div>
     
-        <form class="d-flex flex-column  align-items-center justify-content-center min-vw-100 mt-5  bg-transparent">
+        <form id="form" class="d-flex flex-column  align-items-center justify-content-center min-vw-100 mt-5  bg-transparent">
     
             <div class="container-fluid d-flex w-50  flex-fill">
             
@@ -17,11 +17,11 @@
             </div>
     
             <div class="form-floating mb-3 p-1 w-50 flex-fill">
-                <input type="email" class="form-control" id="email" placeholder="name@example.com" autocomplete="email" required>
+                <input type="email" class="form-control" name="email" id="email" placeholder="name@example.com" autocomplete="email" required>
                 <label for="email" name="email" class="d-flex">Email <div class="text-danger"> &nbsp;*</div></label>
             </div>
             <div class="form-floating mb-3 p-1  w-50 flex-fill">
-            <input type="password" class="form-control" id="Pincode" placeholder="name@example.com">
+            <input type="password" class="form-control" name="passwd" id="Pincode" placeholder="">
             <label for="Pincode" class="d-flex">Password<div class="text-danger"> &nbsp;*</div> </label>
             </div>
     
@@ -29,7 +29,7 @@
     
     
     
-            <button type="submit" class="btn btn-danger w-25 p-2 mb-3">Login</button>
+            <button type="submit" class="btn btn-danger w-25 p-2 mb-3" ng-click="login.login()">Login</button>
     
             <div class="d-flex w-auto flex-fill bg-webbg text-black rounded-4 mb-2">Don't Have an Account?<div class="text-danger"  ng-click="login.redirect()"> &nbsp; Register</div></div> 
     
