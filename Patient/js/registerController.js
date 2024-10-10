@@ -63,12 +63,19 @@ myApp.controller("registerController", ["$http", "$location", function ($http, $
 
         var requestPass = false
         console.log("click")
-        
-        if(formDataObject.first_name == ""){
+
+        const nameRegex = "/^[A-Z]+[a-z]{2,25}$/"
+        console.log(formDataObject.first_name.trim())
+        if(formDataObject.first_name.trim() == ""){
             myThis.first_name = "*is required field"
+            console.log("a")
+
+            
         }
         else{
+            console.log("b")
             myThis.first_name = ""
+            console.log(nameRegex.match(formDataObject.first_name))
         }
         if(formDataObject.last_name == ""){
             myThis.last_name = "*is required field"

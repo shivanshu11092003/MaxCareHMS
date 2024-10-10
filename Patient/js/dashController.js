@@ -5,6 +5,9 @@ myApp.controller("dashController", ["$http", "$location", function ($http, $loca
     myThis.login = function () {
         $location.url("/login")
     }
+    myThis.career = function () {
+        $location.url("/drRegister")
+    }
     myThis.register = function () {
         $location.url("/register")
     }
