@@ -1,4 +1,4 @@
-const baseURL = "10.21.98.212"
+const baseURL = "10.21.97.74"
 myApp.controller("loginController", ["$http", "$location", function ($http, $location) {
 
     const myThis = this
@@ -25,7 +25,7 @@ myApp.controller("loginController", ["$http", "$location", function ($http, $loc
         
             $http(registerRequest).then((response)=>{
     
-                $location.url("/patient")
+                $location.url(response.data.route)
         
             })
     

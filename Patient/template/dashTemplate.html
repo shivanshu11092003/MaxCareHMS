@@ -76,37 +76,15 @@
 
         </div>
         <div class="d-flex w-100 flex-row justify-content-center flex-fill flex-wrap p-1">
-            <div class="card m-1  shadow-sm bg-light" style="width: 20rem;">
-                <img src="https://img.freepik.com/free-photo/beautiful-young-female-doctor-looking-camera-office_1301-7807.jpg?size=626&ext=jpg&ga=GA1.1.1819120589.1728345600&semt=ais_hybrid" style="height: 18rem;" class="card-img-top image-fluid object-fit-scale border rounded" alt="...">
+            <div class="card m-1  shadow-sm bg-light" ng-repeat="item in dash.doctors track by $index" style="width: 20rem;">
+                <img src="https://10.21.97.74:8000/maxcare_patient/media/{{item.doc_img}}" style="height: 18rem;" class="card-img-top image-fluid object-fit-scale border rounded" alt="...">
                 <div class="card-body">
-                  <h5 class="card-title text-danger">Dr. Shrinivashni </h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <h5 class="card-title text-danger">{{item.first_name}} {{item.last_name}}</h5>
+                  <p class="card-text">Specialization:{{item.specialization}}</p>
                 </div>
               </div>
 
-              <div class="card m-1  shadow-sm bg-light" style="width: 20rem;">
-                <img src="https://img.freepik.com/free-photo/beautiful-young-female-doctor-looking-camera-office_1301-7807.jpg?size=626&ext=jpg&ga=GA1.1.1819120589.1728345600&semt=ais_hybrid" style="height: 18rem;" class="card-img-top image-fluid object-fit-scale border rounded" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title text-danger">Dr. Shrinivashni </h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-              </div>
-
-              <div class="card m-1  shadow-sm bg-light" style="width: 20rem;">
-                <img src="https://img.freepik.com/free-photo/beautiful-young-female-doctor-looking-camera-office_1301-7807.jpg?size=626&ext=jpg&ga=GA1.1.1819120589.1728345600&semt=ais_hybrid" style="height: 18rem;" class="card-img-top image-fluid object-fit-scale border rounded" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title text-danger">Dr. Shrinivashni </h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-              </div>
-
-              <div class="card m-1  shadow-sm bg-light" style="width: 20rem;">
-                <img src="https://img.freepik.com/free-photo/beautiful-young-female-doctor-looking-camera-office_1301-7807.jpg?size=626&ext=jpg&ga=GA1.1.1819120589.1728345600&semt=ais_hybrid" style="height: 18rem;" class="card-img-top image-fluid object-fit-scale border rounded" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title text-danger">Dr. Shrinivashni </h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-              </div>
+             
 
               
 

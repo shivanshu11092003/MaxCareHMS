@@ -1,3 +1,5 @@
+const baseURL = "10.21.97.74"
+
 myApp.controller("dashController", ["$http", "$location", function ($http, $location) {
 
     const myThis = this
@@ -11,5 +13,19 @@ myApp.controller("dashController", ["$http", "$location", function ($http, $loca
     myThis.register = function () {
         $location.url("/register")
     }
+
+
+    const doctorInfoRequest = {
+        method: "GET",
+        url: `https://${baseURL}:8000/maxcare_patient/info/`
+
+    }
+    $http(doctorInfoRequest).then((response) => {
+        console.log(response.data)
+        myThis.doctors = response.data
+    })
+
+
+    
 
 }])  

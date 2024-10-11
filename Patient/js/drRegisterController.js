@@ -19,99 +19,149 @@ myApp.controller("drRegisterController", ["$http", "$location", function ($http,
         console.log(formDataObject.first_name.trim())
         if(formDataObject.first_name.trim() == ""){
             myThis.first_name = "*is required field"
-            console.log("a")
+            requestPass = false
 
             
         }
         else{
-            console.log("b")
+            requestPass = true
             myThis.first_name = ""
             console.log(nameRegex.match(formDataObject.first_name))
         }
         if(formDataObject.last_name == ""){
             myThis.last_name = "*is required field"
+            requestPass = false
+
         }
         else{
             myThis.last_name = ""
+            requestPass = true
+
         }
         if(formDataObject.email == ""){
             myThis.email = "*is required field"
+            requestPass = false
+
         }
         else{
             myThis.email = ""
+            requestPass = true
+
         }
         if(formDataObject.mobile == ""){
             myThis.mobile = "*is required field"
+            requestPass = false
+
         
         }else{
             myThis.mobile = ""
+            requestPass = true
+
         }
         if(formDataObject.gender == ""){
             myThis.gender = "*is required field"
+            requestPass = false
+
         
         }else{
             myThis.gender = ""
+            requestPass = true
+
         }
         if(formDataObject.maritalStatus == ""){
             myThis.maritalStatus = "*is required field"
+            requestPass = false
+
         
         }else{
             myThis.maritalStatus = ""
+            requestPass = true
+
         }
         if(formDataObject.dob == ""){
             myThis.dob = "*is required field"
+            requestPass = false
+
         
         }else{
             myThis.dob = ""
+            requestPass = true
+
         }
       
        
         if(formDataObject.pincode == "" ){
             myThis.pincode = "*is required field"
+            requestPass = false
+
         
         }else{
             myThis.pincode = ""
+            requestPass = true
+
         }
         if(formDataObject.address == "" ){
             myThis.address = "*is required field"
+            requestPass = false
+
         
         }else{
             myThis.address = ""
+            requestPass = true
+
         }
         if(formDataObject.city == "" ){
             myThis.city = "*is required field"
+            requestPass = false
+
         
         }else{
             myThis.city = ""
+            requestPass = true
+
         }
         if(formDataObject.state == "" ){
             myThis.state = "*is required field"
+            requestPass = false
+
         
         }else{
             myThis.state = ""
+            requestPass = true
+
         }
         if(formDataObject.passwd1 == "" ){
             myThis.passwd1 = "*is required field"
+            requestPass = false
+
         
         }else{
             myThis.passwd1 = ""
+            requestPass = true
+
         }
         console.log(formDataObject.passwd2,formDataObject.passwd1)
         if(formDataObject.passwd2 == "" ){
             myThis.passwd2 = "*required field"
+            requestPass = false
+
         
         }else{
             if(formDataObject.passwd2 == formDataObject.passwd1 ){
                 myThis.passwd2 = ""
+                requestPass = true
+
             
             }else{
                 myThis.passwd2 = "*must same as passwd"
+                requestPass = false
+
             }
         }
         
        
 
-        if(true){
+        if(requestPass){
             var registerRequest = {
                 method:"POST",
                 url:`https://${baseURL}:8000/maxcare_patient/register_doctor/`,

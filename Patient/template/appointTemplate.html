@@ -1,5 +1,107 @@
-<div class="image-fluid d-flex flex-fill flex-column min-vh-100 w-100 border align-items-center shadow-sm justify-content-center bg-light"
+<div class="d-flex flex-fill flex-column border align-items-center shadow-sm justify-content-start bg-light w-100"
     ng-controller="patientAppointmentController as patientAppoint" >
 
-<p>I am Appointment</p>
+
+
+    <div class="d-flex flex-row  align-items-start justify-content-start flex-fill w-100 p-3   bg-transparent"> 
+    <div class="container-fluid bg-webbg  rounded-4 text-danger fs-5 h5 mt-3 px-3">Appointments</div>
+    <button type="submit" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-danger w-auto  px-3" ng-click="patientAppoint.book()">Book&nbsp;Appointment</button>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">
+                <div class="container-fluid d-flex w-auto align-items-center  flex-fill">
+                    
+                    <div class="container-fluid bg-webbg  rounded-4 text-black fs-4 h5 mt-3 px-2">Book Appointment</div>    
+                    <img src="../../hospital.png" class="rounded mx-auto d-block mt-2"  height="30" width="30" alt="...">
+                
+                </div>
+              </h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body d-flex flex-fill flex-column border align-items-center shadow-sm justify-content-start bg-light">
+                <form id="form" class="d-flex flex-column  align-items-center justify-content-center w-100  mt-2   bg-transparent">
+        
+             
+                
+                 
+                    <div class="d-flex flex-row justify-content-between mt-1 w-100 px-2">
+            
+                    <div class="form-floating mb-3 p-1 w-100 flex-fill">
+                        <input type="text" class="form-control" name="symptoms" id="symptoms" placeholder="name@example.com" autocomplete="email" required>
+                        <label for="symptoms" name="symptoms" class="d-flex">Symptoms</label>
+                    </div>
+                    </div>
+            
+                    <div class="d-flex flex-row justify-content-between mt-1 w-100 px-2">
+                    
+                    <div class="form-floating mb-3 p-1  w-auto flex-fill">
+                    <input type="date" class="form-control" name="suffer_date" id="Pincode" placeholder="">
+                    <label for="Pincode" class="d-flex">Suffer from</label>
+                    </div>
+            
+                    <div class="form-floating mb-3 p-1  w-auto flex-fill">
+                    <input type="date" class="form-control"  name="preferred_date" id="Pincode" placeholder="">
+                    <label for="Pincode" class="d-flex">preferred_date</label>
+                    </div>
+            
+                    </div>
+            
+                    <div class="d-flex flex-row justify-content-between mt-1 w-100 px-2">
+            
+                   
+                    <div class="form-floating w-50 mb-3 p-1  flex-fill">
+                        <select class="form-select" id="specialization" name="specialization" ng-model="patientAppoint.specialization">
+                            <option value="">Select </option>
+                            <option value="{{item}}" ng-repeat="item in patientAppoint.specializationArray">{{item}}</option>
+            
+            
+                        </select>
+                        <label for="specialization">specialization</label>
+                        <div class="text-danger" ng-show="patientAppoint.degree">Put valid issue</div>
+            
+                    </div>
+                    <div class="form-floating w-50 mb-3 p-1  flex-fill">
+                        <select class="form-select" id="doctors" name="doc_id">
+                            <option value="">Select </option>
+                            <option value="{{item.id}}" ng-repeat="item in patientAppoint.doctors | filter:patientAppoint.specialization">{{item.first_name}}</option>
+            
+            
+                        </select>
+                        <label for="degree">Doctor</label>
+                        <div class="text-danger" ng-show="patientAppoint.degree">Put valid issue</div>
+            
+                    </div>
+                    </div>
+            
+            
+            
+            
+            
+                    <!-- <button type="submit" class="btn btn-danger w-auto p-2 mb-3" ng-click="patientAppoint.book()">Book Appointment</button> -->
+            
+            
+                </form>
+            
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-black" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-danger">Book</button>
+            </div>
+          </div>
+        </div>
+      </div>
+   
+    
+    </div>
+
+
+    
+
+
+
+
+
 </div>
