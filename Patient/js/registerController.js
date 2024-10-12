@@ -280,12 +280,17 @@ myApp.controller("registerController", ["$http", "$location", function ($http, $
         
             $http(registerRequest).then((response)=>{
     
-                console.log(response)
-        
-            }).catch((error)=>{
-                console.log(error)
-            })
+                
+                if(response.status == 200){
+                    $location.url(response.data.route)
 
+                }
+    
+        
+            }).catch((e)=>{
+                console.log(e.status,e)
+            })
+    
         }
         
     

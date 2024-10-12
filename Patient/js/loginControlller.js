@@ -6,6 +6,24 @@ myApp.controller("loginController", ["$http", "$location", function ($http, $loc
     myThis.redirect = function () {
         $location.url("/register")
     }
+    var registerRequest = {
+        method:"GET",
+        url:`https://${baseURL}:8000/maxcare_patient/signin/`,
+
+        withCredentials:true
+    }
+
+    $http(registerRequest).then((response)=>{
+
+        if(response.status == 200){
+            $location.url(response.data.route)
+
+        }
+
+
+    }).catch((e)=>{
+        console.log(e.status,e)
+    })
 
     myThis.login = function(){
         const form = document.getElementById("form")
@@ -24,9 +42,15 @@ myApp.controller("loginController", ["$http", "$location", function ($http, $loc
             }
         
             $http(registerRequest).then((response)=>{
+
+                if(response.status == 200){
+                    $location.url(response.data.route)
+
+                }
     
-                $location.url(response.data.route)
         
+            }).catch((e)=>{
+                console.log(e.status,e)
             })
     
         

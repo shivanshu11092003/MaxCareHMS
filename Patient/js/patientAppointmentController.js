@@ -14,6 +14,22 @@ myApp.controller("patientAppointmentController", ["$http", "$location", function
         myThis.doctors = response.data
     })
 
+    function getData(){
+        const getAppointmentData = {
+            method: "GET",
+            url: `https://${baseURL}:8000/maxcare_patient/book_appointments/`,
+            withCredentials:true
+
+    
+        }
+        $http(getAppointmentData).then((response) => {
+            console.log(response.data)
+            myThis.appointments = response.data
+        })
+
+    }
+    getData();
+
     myThis.book = function(){
 
         const form = document.getElementById("form")
@@ -35,6 +51,8 @@ myApp.controller("patientAppointmentController", ["$http", "$location", function
         }
         $http(doctorInfoRequest).then((response) => {
             console.log(response.data)
+            getData();
+            $location.url("/patient/patientappointment")
         })
 
 

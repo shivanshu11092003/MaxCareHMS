@@ -1,11 +1,10 @@
 <div class="d-flex flex-fill flex-column border shadow-sm justify-content-start min-vh-100 bg-light w-100"
-    ng-controller="patientAppointmentController as patientAppoint" >
+    ng-controller="receptionistAppointmentController as receptionistAppoint" >
 
 
 
     <div class="d-flex flex-row  align-items-start justify-content-start w-100 p-3"> 
-        <div class="d-flex w-100 bg-webbg  rounded-4 text-danger fs-5 h5 mt-3 px-3"><i class="bi bi-list d-flex d-md-none m-1"></i>Appointments</div>
-        <button type="submit" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-danger w-auto mt-2 px-3">Book&nbsp;Appointment</button>
+        <div class="d-flex w-100 bg-webbg  rounded-4 text-danger fs-5 h5 mt-3 px-3"><i class="bi bi-list d-flex d-md-none m-1"></i>Appointments Statistics</div>
     
         </div>
 
@@ -38,7 +37,7 @@
     
 
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog  modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
               <h1 class="modal-title fs-5" id="exampleModalLabel">
@@ -104,7 +103,14 @@
                         <div class="text-danger" ng-show="patientAppoint.degree">Put valid issue</div>
             
                     </div>
-                  </div>            
+                    </div>
+            
+            
+            
+            
+            
+                    <!-- <button type="submit" class="btn btn-danger w-auto p-2 mb-3" ng-click="patientAppoint.book()">Book Appointment</button> -->
+            
             
                 </form>
             

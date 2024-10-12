@@ -1,8 +1,9 @@
 const baseURL = "10.21.97.74"
 
-myApp.controller("patientController", ["$http", "$location", function ($http, $location) {
+myApp.controller("receptionistController", ["$http", "$location", function ($http, $location) {
 
     const myThis = this;
+
     var registerRequest = {
         method:"GET",
         url:`https://${baseURL}:8000/maxcare_patient/signin/`,
@@ -37,23 +38,5 @@ myApp.controller("patientController", ["$http", "$location", function ($http, $l
     })
 
 
-    myThis.logout = function(){
-        const logoutRequest = {
-            method: "GET",
-            url: `https://${baseURL}:8000/maxcare_patient/logout/`,
-            withCredentials:true
-    
-    
-        }
-        $http(logoutRequest).then((response) => {
-            if(response.status = 200){
-                $location.url(response.data.route)
-            }
-        })
-
-    }
-
 
 }])
-
-

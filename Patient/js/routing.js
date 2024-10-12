@@ -68,6 +68,71 @@ myApp.config(function ($stateProvider, $urlRouterProvider) {
 
   };
 
+  var receptionistState = {
+    name:"receptionist",
+    url:"/receptionist",
+    templateUrl: "/Receptionist/template/receptionistTemplate.html",
+    controller: "receptionistController",
+    
+  }
+  $stateProvider.state("receptionist", receptionistState);
+
+  var appointmentsState = {
+    name: "receptionist.appointments",
+    parent:'receptionist',
+    url: "/appointments",
+    templateUrl: "/Receptionist/template/appointmentsStatisticsiTemplate.html",
+    controller: "receptionistAppointmentController", 
+
+  };
+  $stateProvider.state("appointments", appointmentsState);
+
+
+  var pendingAppointmentsState = {
+    name: "receptionist.pendingAppointments",
+    parent:'receptionist',
+    url: "/pendingAppointments",
+    templateUrl: "/Receptionist/template/pendingTemplate.html",
+    controller: "pendingAppointmentsController", 
+
+  };
+  $stateProvider.state("pendingAppointments", pendingAppointmentsState);
+
+  var initiatedState = {
+    name: "receptionist.initiated",
+    parent:'receptionist',
+    url: "/initiated",
+    templateUrl: "/Receptionist/template/initiatedTemplate.html",
+    controller: "initiatedController", 
+
+  };
+  $stateProvider.state("initiated", initiatedState);
+
+  var confirmState = {
+    name: "receptionist.confirm",
+    parent:'receptionist',
+    url: "/confirm",
+    templateUrl: "/Receptionist/template/confirmTemplate.html",
+    controller: "confirmController", 
+
+  };
+  $stateProvider.state("confirm", confirmState);
+
+  var transactionPatientState = {
+    name: "receptionist.confirm",
+    parent:'receptionist',
+    url: "/transactionPatient",
+    templateUrl: "/Receptionist/template/transactionPatientTemplate.html",
+    controller: "transactionPatientController", 
+
+  };
+  $stateProvider.state("transactionPatient", transactionPatientState);
+
+
+
+
+
+
   $stateProvider.state("login", loginState);
   $stateProvider.state("register", registerState);
   $stateProvider.state("dashboard", dashState);
