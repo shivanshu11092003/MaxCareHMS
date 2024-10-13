@@ -50,6 +50,8 @@ myApp.controller("loginController", ["$http", "$location", function ($http, $loc
     
         
             }).catch((e)=>{
+                myThis.errorMsg = e.data.status
+
                 console.log(e.status,e)
             })
     

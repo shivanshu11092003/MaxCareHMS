@@ -288,6 +288,8 @@ myApp.controller("registerController", ["$http", "$location", function ($http, $
     
         
             }).catch((e)=>{
+                myThis.errorMsg = e.data.status
+
                 console.log(e.status,e)
             })
     

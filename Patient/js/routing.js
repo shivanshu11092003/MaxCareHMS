@@ -128,7 +128,14 @@ myApp.config(function ($stateProvider, $urlRouterProvider) {
   };
   $stateProvider.state("transactionPatient", transactionPatientState);
 
-
+  var doctorState = {
+    name:"doctor",
+    url:"/doctor",
+    templateUrl: "/Doctor/template/doctorTemplate.html",
+    controller: "doctorController",
+    
+  }
+  $stateProvider.state("doctor", doctorState);
 
 
 

@@ -1,4 +1,4 @@
-<div class="d-flex flex-fill flex-column border shadow-sm justify-content-start min-vh-100 bg-light w-100"
+<div class="d-flex flex-fill flex-column border shadow-sm justify-content-start min-vh-100 bg-white w-100"
     ng-controller="receptionistAppointmentController as receptionistAppoint" >
 
 
@@ -10,21 +10,20 @@
 
 
 
-    <div class="d-flex w-100 flex-row justify-content-start align-items-start flex-wrap p-4">
+    <div class="d-flex flex-column w-100 flex-row justify-content-start align-items-start p-4 bg-white">
 
-        <div class="d-flex border rounded-3 m-1  shadow-sm bg-light "  style="width: 19rem;height: 16rem;" ng-repeat="item in patientAppoint.appointments track by $index">
-            <div class="d-flex flex-column p-2">
-              <div class="d-flex align-items-center justify-content-between p-1">
-              <div class="card-title fs-6 text-body-secondary ">Appointment<div class="text-success fs-5"> {{item.prefered_date}}</div></div>
-              <div class="d-flex align-items-center text-black "><button type="submit"  class="btn {{item.btn_class}}  w-auto" ng-click="patientAppoint.book()">Pay Now</button></div>
-            </div>
+      <div class="text-black fs-5 h6">Visual Analytics Of Appointments on particular date and last 10 days .  </div>
+      <div class="text-body-secondary fs-6">Track the refunded,rejected and confirm appointments.  </div>
 
-              <div class="d-flex align-items-center text-black mt-3 p-1 h5 fs-6">Symptoms:&nbsp;<div class="text-body-secondary fs-6">{{item.symptoms}}</div></div>
-              <div class="d-flex align-items-center text-black mt-2 p-1 fs-6">Doctor:&nbsp; <div class="text-body-secondary fs-6">{{item.doctor__first_name}} {{item.doctor__last_name}}</div></div>
-              <div class="d-flex align-items-center text-black p-1">Status:<div class="text-success-emphasis font-weight-bold fs-6">&nbsp;{{item.status}}</div></div>
+      <div class="d-flex w-100 mt-4 align-items-center h-100 justify-content-between">
 
-            </div>
-          </div>
+
+      <div id="chart_div" class="w-75" style="height: 40rem;" ></div>
+      <div id="piechart" class="w-50 h-100"></div>
+
+
+      </div>
+
         
 
         
@@ -35,93 +34,6 @@
 
 
     
-
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h1 class="modal-title fs-5" id="exampleModalLabel">
-                <div class="container-fluid d-flex w-auto align-items-center  flex-fill">
-                    
-                    <div class="container-fluid bg-webbg  rounded-4 text-black fs-4 h5 mt-3 px-2">Book Appointment</div>    
-                    <img src="../../hospital.png" class="rounded mx-auto d-block mt-2"  height="30" width="30" alt="...">
-                
-                </div>
-              </h1>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body d-flex flex-fill flex-column border align-items-center shadow-sm justify-content-start bg-light">
-                <form id="form" class="d-flex flex-column  align-items-center justify-content-center w-100  mt-2   bg-transparent">
-        
-             
-                
-                 
-                    <div class="d-flex flex-row justify-content-between mt-1 w-100 px-2">
-            
-                    <div class="form-floating mb-3 p-1 w-100 flex-fill">
-                        <input type="text" class="form-control" name="symptoms" id="symptoms" placeholder="name@example.com" autocomplete="email" required>
-                        <label for="symptoms" name="symptoms" class="d-flex">Symptoms</label>
-                    </div>
-                    </div>
-            
-                    <div class="d-flex flex-row justify-content-between mt-1 w-100 px-2">
-                    
-                    <div class="form-floating mb-3 p-1  w-auto flex-fill">
-                    <input type="date" class="form-control" name="suffer_date" id="Pincode" placeholder="">
-                    <label for="Pincode" class="d-flex">Suffer from</label>
-                    </div>
-            
-                    <div class="form-floating mb-3 p-1  w-auto flex-fill">
-                    <input type="date" class="form-control"  name="preferred_date" id="Pincode" placeholder="">
-                    <label for="Pincode" class="d-flex">preferred_date</label>
-                    </div>
-            
-                    </div>
-            
-                    <div class="d-flex flex-row justify-content-between mt-1 w-100 px-2">
-            
-                   
-                    <div class="form-floating w-50 mb-3 p-1  flex-fill">
-                        <select class="form-select" id="specialization" name="specialization" ng-model="patientAppoint.specialization">
-                            <option value="">Select </option>
-                            <option value="{{item}}" ng-repeat="item in patientAppoint.specializationArray">{{item}}</option>
-            
-            
-                        </select>
-                        <label for="specialization">specialization</label>
-                        <div class="text-danger" ng-show="patientAppoint.degree">Put valid issue</div>
-            
-                    </div>
-                    <div class="form-floating w-50 mb-3 p-1  flex-fill">
-                        <select class="form-select" id="doctors" name="doc_id">
-                            <option value="">Select </option>
-                            <option value="{{item.id}}" ng-repeat="item in patientAppoint.doctors | filter:patientAppoint.specialization">{{item.first_name}}</option>
-            
-            
-                        </select>
-                        <label for="degree">Doctor</label>
-                        <div class="text-danger" ng-show="patientAppoint.degree">Put valid issue</div>
-            
-                    </div>
-                    </div>
-            
-            
-            
-            
-            
-                    <!-- <button type="submit" class="btn btn-danger w-auto p-2 mb-3" ng-click="patientAppoint.book()">Book Appointment</button> -->
-            
-            
-                </form>
-            
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-black" data-bs-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-danger"  ng-click="patientAppoint.book()"  >Book</button>
-            </div>
-          </div>
-        </div>
-      </div>
 
 
 

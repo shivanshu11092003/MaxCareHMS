@@ -37,6 +37,22 @@ myApp.controller("receptionistController", ["$http", "$location", function ($htt
         myThis.sideNaviagtion = response.data
     })
 
+    myThis.logout = function(){
+        const logoutRequest = {
+            method: "GET",
+            url: `https://${baseURL}:8000/maxcare_patient/logout/`,
+            withCredentials:true
+    
+    
+        }
+        $http(logoutRequest).then((response) => {
+            if(response.status = 200){
+                $location.url(response.data.route)
+            }
+        })
+
+    }
+
 
 
 }])

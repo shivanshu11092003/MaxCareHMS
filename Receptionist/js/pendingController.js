@@ -17,6 +17,29 @@ myApp.controller("pendingAppointmentsController", ["$http", "$location", functio
     }
     getData();
 
+    myThis.update = function($index,id){
+
+        console.log(myThis.status[$index])
+
+        const statusUpdateRequest = {
+            method:"PUT",
+            url: `https://${baseURL}:8000/maxcare_patient/book_appointments/`,
+            data:{
+                id:id,
+                updated_status:myThis.status[$index],
+
+            },
+            withCredentials:true
+
+        }
+        $http(statusUpdateRequest).then((response) => {
+            console.log(response.status)
+            getData();
+
+        })
+
+    }
+
 
 
 }])

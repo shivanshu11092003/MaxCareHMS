@@ -1,4 +1,4 @@
-<div class="d-flex flex-fill flex-column border shadow-sm justify-content-start min-vh-100 bg-light w-100"
+<div class="d-flex flex-fill flex-column border shadow-sm justify-content-start min-vh-100 bg-white w-100"
     ng-controller="patientAppointmentController as patientAppoint" >
 
 
@@ -14,7 +14,7 @@
     <div class="d-flex w-100 flex-row justify-content-start align-items-start flex-wrap p-4">
 
         <div class="d-flex border rounded-3 m-1  shadow-sm bg-light "  style="width: 19rem;height: 16rem;" ng-repeat="item in patientAppoint.appointments track by $index">
-            <div class="d-flex flex-column p-2">
+            <div class="d-flex flex-column p-2 w-100">
               <div class="d-flex align-items-center justify-content-between p-1">
               <div class="card-title fs-6 text-body-secondary ">Appointment<div class="text-success fs-5"> {{item.prefered_date}}</div></div>
               <div class="d-flex align-items-center text-black "><button type="submit"  class="btn {{item.btn_class}}  w-auto" ng-click="patientAppoint.book()">Pay Now</button></div>
