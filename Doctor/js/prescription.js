@@ -1,6 +1,6 @@
 const baseURL = "10.21.97.74"
 
-myApp.controller("drpendingAppointmentsController", ["$http", "$location", function ($http, $location) {
+myApp.controller("drprescriptionController", ["$http", "$location", function ($http, $location) {
     const myThis = this
     // function getData(){
     //     const getAppointmentData = {

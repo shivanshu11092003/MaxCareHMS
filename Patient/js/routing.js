@@ -119,7 +119,7 @@ myApp.config(function ($stateProvider, $urlRouterProvider) {
   $stateProvider.state("confirm", confirmState);
 
   var transactionPatientState = {
-    name: "receptionist.confirm",
+    name: "receptionist.transaction",
     parent:'receptionist',
     url: "/transactionPatient",
     templateUrl: "/Receptionist/template/transactionPatientTemplate.html",
@@ -136,6 +136,36 @@ myApp.config(function ($stateProvider, $urlRouterProvider) {
     
   }
   $stateProvider.state("doctor", doctorState);
+
+  var drpendingAppointmentsState = {
+    name: "doctor.drpendingAppointments",
+    parent:'doctor',
+    url: "/drpendingAppointments",
+    templateUrl: "/Doctor/template/drpendingTemplate.html",
+    controller: "drpendingAppointmentsController", 
+
+  };
+  $stateProvider.state("drpendingAppointments", drpendingAppointmentsState);
+  var drconfirmAppointmentsState = {
+    name: "doctor.drconfirmAppointments",
+    parent:'doctor',
+    url: "/drconfirmAppointments",
+    templateUrl: "/Doctor/template/confirmDrTemplate.html",
+    controller: "drconfirmAppointmentsController", 
+
+  };
+  $stateProvider.state("drconfirmAppointments", drconfirmAppointmentsState);
+
+  var drprescriptionState = {
+    name: "doctor.drprescription",
+    parent:'doctor',
+    url: "/drprescription",
+    templateUrl: "/Doctor/template/prescriptionDrTemplate.html",
+    controller: "drprescriptionController", 
+
+  };
+  $stateProvider.state("drprescription", drprescriptionState);
+
 
 
 

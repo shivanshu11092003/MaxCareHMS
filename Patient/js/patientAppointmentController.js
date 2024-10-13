@@ -37,6 +37,9 @@ myApp.controller("patientAppointmentController", ["$http", "$location", function
         const formData = new FormData(form)
 
 
+      
+        console.log("Hello")
+    
 
         const doctorInfoRequest = {
             method: "POST",
@@ -52,8 +55,12 @@ myApp.controller("patientAppointmentController", ["$http", "$location", function
         $http(doctorInfoRequest).then((response) => {
             console.log(response.data)
             getData();
-            $location.url("/patient/patientappointment")
         })
+
+ 
+
+
+
 
 
     }

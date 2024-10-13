@@ -6,6 +6,18 @@ myApp.controller("receptionistAppointmentController", ["$http", "$location", fun
     google.charts.setOnLoadCallback(drawVisualization);
 
     function drawVisualization() {
+
+    //   const getAppointmentData = {
+    //     method: "GET",
+    //     url: `https://${baseURL}:8000/maxcare_patient/book_appointments/?status=Confirmed`,
+    //     withCredentials:true
+
+
+    // }
+    // $http(getAppointmentData).then((response) => {
+    //     myThis.appointments = response.data
+    // })
+
       
         var data = google.visualization.arrayToDataTable([
 
@@ -17,7 +29,7 @@ myApp.controller("receptionistAppointmentController", ["$http", "$location", fun
         ]);
 
         var options = {
-            title: 'Last 10 Days Requested Appoinments',
+            title: 'Last 5 Days Requested Appoinments',
             vAxis: { title: 'Request' },
             hAxis: { title: 'Date' },
             seriesType: 'bars',
