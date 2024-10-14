@@ -12,18 +12,18 @@
 
     <div class="d-flex w-100 flex-row justify-content-start align-items-start flex-wrap p-4">
 
-        <div class="d-flex border rounded-3 m-1  shadow-sm bg-light" style="width: 19rem;height: 18.5rem;"
+        <div class="d-flex border rounded-3 m-1  shadow-sm bg-light" style="width: 19rem;height: 19.5rem;"
             ng-repeat="item in pendingAppointments.appointments track by $index">
             <div class="d-flex flex-column p-2 w-100">
                 <div class="d-flex align-items-center justify-content-between p-1">
                     <div class="card-title fs-6 text-body-secondary ">
-                        Appointment<div class="text-success fs-5"> {{item.prefered_date}}</div>
+                        Appointment {{item.id}}<div class="text-success fs-5"> {{item.prefered_date}}</div>
                     </div>
                     <div class="d-flex align-items-center text-black ">
                         <select class="form-select" id="status" name="status"
                             ng-model="pendingAppointments.status[$index]"
                             ng-click="pendingAppointments.update($index,item.id)">
-                            <option value="">Pending</option>
+                            <option value="">Select to confirm</option>
                             <option value="Request Initiated">Confirm</option>
                             <option value="Rejected">Reject</option>
 
@@ -45,7 +45,15 @@
                         class="text-success-emphasis font-weight-bold fs-6">&nbsp;{{item.status}}</div>
                 </div>
 
+
+
+                <!-- <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="remark" ng-model="pendingAppointments.feedBack[$index]" aria-label="Username" aria-describedby="basic-addon1">
+                </div> -->
+  
+
             </div>
+            
         </div>
 
 

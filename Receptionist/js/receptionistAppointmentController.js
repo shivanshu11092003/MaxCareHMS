@@ -1,32 +1,27 @@
+const baseURL = "10.21.96.74"
 myApp.controller("receptionistAppointmentController", ["$http", "$location", function ($http, $location) {
 
 
-    //Bar
+
+
+      const getAppointmentData = {
+        method: "GET",
+        url: `https://${baseURL}:8000/maxcare_patient/analytics`,
+        withCredentials:true
+
+
+    }
+    $http(getAppointmentData).then((response) => {
+        
+       //Bar
     google.charts.load('current', { 'packages': ['corechart'] });
     google.charts.setOnLoadCallback(drawVisualization);
 
     function drawVisualization() {
-
-    //   const getAppointmentData = {
-    //     method: "GET",
-    //     url: `https://${baseURL}:8000/maxcare_patient/book_appointments/?status=Confirmed`,
-    //     withCredentials:true
-
-
-    // }
-    // $http(getAppointmentData).then((response) => {
-    //     myThis.appointments = response.data
-    // })
-
+      var barArray =[]
+      console.log(response.data)
       
-        var data = google.visualization.arrayToDataTable([
-
-            ['Date', 'Total Request', 'Accepted by Receptionist', 'Rejected by Receptionist', 'Accepted by doctor', 'Refunded'],
-            ['10-10-24', 1000, 900, 100, 600, 300],
-            ['11-10-24', 660, 460, 200, 260, 200],
-            ['12-10-24', 960, 520, 400, 120, 400],
-            ['13-10-24', 600, 500, 100, 150, 350]
-        ]);
+        var data = google.visualization.arrayToDataTable(response.data);
 
         var options = {
             title: 'Last 5 Days Requested Appoinments',
@@ -41,17 +36,19 @@ myApp.controller("receptionistAppointmentController", ["$http", "$location", fun
     }
 
     //pie
+    console.log(response.data[0][1],response.data[1][1])
+    var pieArray =[['Handler', 'RequestHandle']]
+
+    for(var i=1;i<6;i++){
+      var array = [response.data[0][i],response.data[1][i]]
+      pieArray.push(array);
+    }
+    console.log(pieArray)
+
     google.charts.load("current", {packages:["corechart"]});
     google.charts.setOnLoadCallback(drawChart);
     function drawChart() {
-      var data = google.visualization.arrayToDataTable([
-        ['Handler', 'RequestHandle'],
-        ['Total Request ', 1200], 
-        ['Accepted by Receptionist', 900],
-         ['Rejected by Receptionist', 300],
-        ['Accepted by doctor', 750],
-         ['Refunded', 150]
-      ]);
+      var data = google.visualization.arrayToDataTable(pieArray);
 
       var options = {
         title: "Today's Analytics " ,
@@ -65,6 +62,8 @@ myApp.controller("receptionistAppointmentController", ["$http", "$location", fun
       chart.draw(data, options);
     }
 
+    })
+   
 
 }])
 

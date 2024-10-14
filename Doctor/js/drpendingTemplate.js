@@ -1,44 +1,45 @@
-const baseURL = "10.21.97.74"
+const baseURL = "10.21.96.74"
 
 myApp.controller("drpendingAppointmentsController", ["$http", "$location", function ($http, $location) {
     const myThis = this
-    // function getData(){
-    //     const getAppointmentData = {
-    //         method: "GET",
-    //         url: `https://${baseURL}:8000/maxcare_patient/book_appointments/?status=Pending`,
-    //         withCredentials:true
+    function getData(){
+        const getAppointmentData = {
+            method: "GET",
+            url: `https://${baseURL}:8000/maxcare_patient/book_appointments/?status=Paid`,
+            withCredentials:true
 
     
-    //     }
-    //     $http(getAppointmentData).then((response) => {
-    //         myThis.appointments = response.data
-    //     })
+        }
+        $http(getAppointmentData).then((response) => {
+            myThis.appointments = response.data
+        })
 
-    // }
-    // getData();
+    }
+    getData();
 
-    // myThis.update = function($index,id){
+    myThis.update = function($index,id){
 
-    //     console.log(myThis.status[$index])
+       
 
-    //     const statusUpdateRequest = {
-    //         method:"PUT",
-    //         url: `https://${baseURL}:8000/maxcare_patient/book_appointments/`,
-    //         data:{
-    //             id:id,
-    //             updated_status:myThis.status[$index],
+        const statusUpdateRequest = {
+            method:"PUT",
+            url: `https://${baseURL}:8000/maxcare_patient/book_appointments/`,
+            data:{
+                id:id,
+                updated_status:myThis.status[$index],
+                // remark:myThis.remark[$index]
 
-    //         },
-    //         withCredentials:true
+            },
+            withCredentials:true
 
-    //     }
-    //     $http(statusUpdateRequest).then((response) => {
-    //         console.log(response.status)
-    //         getData();
+        }
+        $http(statusUpdateRequest).then((response) => {
+            console.log(response.status)
+            getData();
 
-    //     })
+        })
 
-    // }
+    }
 
 
 

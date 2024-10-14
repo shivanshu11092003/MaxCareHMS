@@ -6,40 +6,85 @@ ng-controller="drprescriptionController as pendingAppointments" >
     <div class="d-flex flex-row  align-items-start justify-content-start w-100 p-3"> 
         <div class="d-flex w-100 bg-webbg  rounded-4 text-danger fs-5 h5 mt-3 px-3">
             <i class="bi bi-list d-flex d-md-none m-1"></i>
-            Prescription</div>
+            Prescription Of Appointment {{pendingAppointments.id}}</div>
     
         </div>
 
         <div class="d-flex w-100 flex-row justify-content-start align-items-start flex-wrap p-4">
 
-            <div class="d-flex border rounded-3 m-1  shadow-sm bg-light" style="width: 19rem;height: 18.5rem;"
-                ng-repeat="item in pendingAppointments.appointments track by $index">
-                <div class="d-flex flex-column p-2 w-100">
-                    <div class="d-flex align-items-center justify-content-between p-1">
-                        <div class="card-title fs-6 text-body-secondary ">
-                            Appointment<div class="text-success fs-5"> {{item.prefered_date}}</div>
-                        </div>
-                        
+            <form id="form" class="d-flex flex-column  align-items-center justify-content-center w-100  mt-2   bg-transparent">
+        
+             
+                
+                 
+                <div class="d-flex flex-column justify-content-between mt-1 w-100 px-2">
+        
+                <div class="form-floating mb-3 p-1 w-100 d-flex flex-fill">
+
+                
+
+                <div class="d-flex flex-row justify-content-between mt-1 w-100 px-2">
+                    <div class="form-floating w-50 mb-3 p-1  flex-fill">
+                        <input type="text" class="form-control" name="name" ng-model="pendingAppointments.name" maxlength="35" id="symptoms" placeholder=""  required>
+                        <label for="name">Medicine Name </label>
+
                     </div>
-    
-                    <div class="d-flex align-items-center text-black mt-3 p-1 h5 fs-6">Patient Name:&nbsp;<div
-                            class="text-body-secondary fs-6">{{item.patient__first_name}} {{item.patient__last_name}}</div>
+
+        
+               
+                    <div class="form-floating w-50 mb-3 p-1  flex-fill">
+                    <input type="date" class="form-control" name="medicine" ng-model="pendingAppointments.date" maxlength="35" id="symptoms" placeholder=""  required>
+
+                        <label for="specialization">Till Prescribed </label>
+                        <div class="text-danger" ng-show="patientAppoint.degree">Put valid issue</div>
+            
                     </div>
-                    <div class="d-flex align-items-center text-black mt-3 p-1 h5 fs-6">Symptoms:&nbsp;<div
-                            class="text-body-secondary fs-6">{{item.symptoms}}</div>
+                    <div class="form-floating w-50 mb-3 p-1  flex-fill">
+                        <select class="form-select" id="doctors" name="doc_id" ng-model="pendingAppointments.frequency">
+                            <option value="">Time's a day </option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+            
+            
+                        </select>
+                        <label for="degree">Doctor</label>
+                        <div class="text-danger " ng-show="patientAppoint.degree">Put valid issue</div>
+            
                     </div>
-                    <div class="d-flex align-items-center text-black mt-2 p-1 fs-6">Doctor:&nbsp; <div
-                            class="text-body-secondary fs-6">{{item.doctor__first_name}} {{item.doctor__last_name}}</div>
-                    </div>
-                    <div class="d-flex align-items-center text-black p-1">Status:<div
-                            class="text-success-emphasis font-weight-bold fs-6">&nbsp;{{item.status}}</div>
-                    </div>
-    
+                  </div>  
+
                 </div>
-            </div>
-    
-    
-    
+
+
+                </div>
+                <button type="button" class="btn btn-danger p-2 h-auto w-auto"  ng-click="pendingAppointments.add()"  >Add</button>
+
+            </form>
+
+
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Medicine Name</th>
+                    <th scope="col">Prescribed Till Date</th>
+                    <th scope="col">In a Day(times)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr ng-repeat="item in pendingAppointments.medicineArray track by $index">
+                    <th scope="row">{{item.medicineNo}}</th>
+                    <td>{{item.medicineName}}</td>
+                    <td>{{item.prescribeDate}}</td>
+                    <td>{{item.inDay}}</td>
+
+                  </tr>
+
+                </tbody>
+                
+              </table>
+
     
     
         </div>

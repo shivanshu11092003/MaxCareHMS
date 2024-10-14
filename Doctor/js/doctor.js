@@ -1,41 +1,41 @@
-const baseURL = "10.21.97.74"
+const baseURL = "10.21.96.74"
 
 myApp.controller("doctorController", ["$http", "$location", function ($http, $location) {
 
     const myThis = this;
 
-    // var registerRequest = {
-    //     method:"GET",
-    //     url:`https://${baseURL}:8000/maxcare_patient/signin/`,
+    var registerRequest = {
+        method:"GET",
+        url:`https://${baseURL}:8000/maxcare_patient/signin/`,
 
-    //     withCredentials:true
-    // }
+        withCredentials:true
+    }
 
-    // $http(registerRequest).then((response)=>{
+    $http(registerRequest).then((response)=>{
 
-    //     if(response.status == 200){
-    //         $location.url(response.data.route)
+        if(response.status == 200){
+            $location.url(response.data.route)
 
-    //     }
+        }
 
 
-    // }).catch((e)=>{
-    //     console.log(e.status,e)
-    // })
+    }).catch((e)=>{
+        console.log(e.status,e)
+    })
 
    
 
-    // const doctorInfoRequest = {
-    //     method: "GET",
-    //     url: `https://${baseURL}:8000/maxcare_patient/side_panel/`,
-    //     withCredentials:true
+    const doctorInfoRequest = {
+        method: "GET",
+        url: `https://${baseURL}:8000/maxcare_patient/side_panel/`,
+        withCredentials:true
 
 
-    // }
-    // $http(doctorInfoRequest).then((response) => {
-    //     console.log(response.data)
-    //     myThis.sideNaviagtion = response.data
-    // })
+    }
+    $http(doctorInfoRequest).then((response) => {
+        console.log(response.data)
+        myThis.sideNaviagtion = response.data
+    })
 
     myThis.logout = function(){
         const logoutRequest = {

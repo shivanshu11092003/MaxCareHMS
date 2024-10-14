@@ -1,7 +1,9 @@
-const baseURL = "10.21.97.74"
-myApp.controller("loginController", ["$http", "$location", function ($http, $location) {
+const baseURL = "10.21.96.74"
+myApp.controller("loginController", ["$http", "$location","$state", function ($http, $location) {
 
     const myThis = this
+
+   
 
     myThis.redirect = function () {
         $location.url("/register")
@@ -17,6 +19,7 @@ myApp.controller("loginController", ["$http", "$location", function ($http, $loc
 
         if(response.status == 200){
             $location.url(response.data.route)
+            // $state.go('patient.patientappointment');
 
         }
 

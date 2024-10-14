@@ -1,4 +1,4 @@
-const baseURL = "10.21.97.74"
+const baseURL = "10.21.96.74"
 
 myApp.controller("drconfirmAppointmentsController", ["$http", "$location", function ($http, $location) {
     const myThis = this
@@ -16,6 +16,9 @@ myApp.controller("drconfirmAppointmentsController", ["$http", "$location", funct
 
     }
     getData();
+
+
+     
 
 
 

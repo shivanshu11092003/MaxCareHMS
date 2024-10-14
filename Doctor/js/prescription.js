@@ -1,45 +1,36 @@
-const baseURL = "10.21.97.74"
+const baseURL = "10.21.96.74"
 
-myApp.controller("drprescriptionController", ["$http", "$location", function ($http, $location) {
+myApp.controller("drprescriptionController", ["$http", "$location","$stateParams", function ($http, $location,$stateParams) {
     const myThis = this
-    // function getData(){
-    //     const getAppointmentData = {
-    //         method: "GET",
-    //         url: `https://${baseURL}:8000/maxcare_patient/book_appointments/?status=Pending`,
-    //         withCredentials:true
+
+    myThis.id = $stateParams.id
 
     
-    //     }
-    //     $http(getAppointmentData).then((response) => {
-    //         myThis.appointments = response.data
-    //     })
 
-    // }
-    // getData();
+    myThis.medicineArray = []
+    var count = 1
 
-    // myThis.update = function($index,id){
+    myThis.add = function(){
+       const medName=myThis.name
+       const date = myThis.date
+       const frequency = myThis.frequency
 
-    //     console.log(myThis.status[$index])
-
-    //     const statusUpdateRequest = {
-    //         method:"PUT",
-    //         url: `https://${baseURL}:8000/maxcare_patient/book_appointments/`,
-    //         data:{
-    //             id:id,
-    //             updated_status:myThis.status[$index],
-
-    //         },
-    //         withCredentials:true
-
-    //     }
-    //     $http(statusUpdateRequest).then((response) => {
-    //         console.log(response.status)
-    //         getData();
-
-    //     })
-
-    // }
+       myThis.medicineArray.push({
+           medicineNo:count,
+           medicineName:medName,
+           prescribeDate:date,
+           inDay:frequency
+       })
+       count++
+       myThis.name =""
+       myThis.date =""
+       myThis.frequency =""
 
 
+
+       console.log(myThis.medicineArray)
+
+
+    }
 
 }])

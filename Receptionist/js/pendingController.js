@@ -1,4 +1,4 @@
-const baseURL = "10.21.97.74"
+const baseURL = "10.21.96.74"
 
 myApp.controller("pendingAppointmentsController", ["$http", "$location", function ($http, $location) {
     const myThis = this
@@ -19,14 +19,19 @@ myApp.controller("pendingAppointmentsController", ["$http", "$location", functio
 
     myThis.update = function($index,id){
 
-        console.log(myThis.status[$index])
+        console.log($index,id)
+        const updateStatus = myThis.status[$index]
+        console.log(updateStatus)
+
+        // const remark = myThis.feedBack[$index]
 
         const statusUpdateRequest = {
             method:"PUT",
             url: `https://${baseURL}:8000/maxcare_patient/book_appointments/`,
             data:{
                 id:id,
-                updated_status:myThis.status[$index],
+                updated_status:updateStatus,
+                // remark: remark
 
             },
             withCredentials:true

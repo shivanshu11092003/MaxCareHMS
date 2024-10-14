@@ -1,4 +1,4 @@
-const baseURL = "10.21.97.74"
+const baseURL = "10.21.96.74"
 
 myApp.controller("patientController", ["$http", "$location", function ($http, $location) {
 
@@ -32,7 +32,6 @@ myApp.controller("patientController", ["$http", "$location", function ($http, $l
 
     }
     $http(doctorInfoRequest).then((response) => {
-        console.log(response.data)
         myThis.sideNaviagtion = response.data
     })
 

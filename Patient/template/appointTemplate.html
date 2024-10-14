@@ -5,7 +5,7 @@
 
     <div class="d-flex flex-row  align-items-start justify-content-start w-100 p-3"> 
         <div class="d-flex w-100 bg-webbg  rounded-4 text-danger fs-5 h5 mt-3 px-3"><i class="bi bi-list d-flex d-md-none m-1"></i>Appointments</div>
-        <button type="submit" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-danger w-auto mt-2 px-3">Book&nbsp;Appointment</button>
+        <button type="submit" class="btn btn-danger w-auto mt-2 px-3">Book&nbsp;Appointment</button>
     
         </div>
 
@@ -13,7 +13,7 @@
 
     <div class="d-flex w-100 flex-row justify-content-start align-items-start flex-wrap p-4">
 
-        <div class="d-flex border rounded-3 m-1  shadow-sm bg-light "  style="width: 19rem;height: 16rem;" ng-repeat="item in patientAppoint.appointments track by $index">
+        <div class="d-flex border rounded-3 m-1  shadow-sm bg-light "  style="width: 19rem;height: 17rem;" ng-repeat="item in patientAppoint.appointments track by $index">
             <div class="d-flex flex-column p-2 w-100">
               <div class="d-flex align-items-center justify-content-between p-1">
               <div class="card-title fs-6 text-body-secondary ">Appointment<div class="text-success fs-5"> {{item.prefered_date}}</div></div>
@@ -22,20 +22,13 @@
 
               <div class="d-flex align-items-center text-black mt-3 p-1 h5 fs-6">Symptoms:&nbsp;<div class="text-body-secondary fs-6">{{item.symptoms}}</div></div>
               <div class="d-flex align-items-center text-black mt-2 p-1 fs-6">Doctor:&nbsp; <div class="text-body-secondary fs-6">{{item.doctor__first_name}} {{item.doctor__last_name}}</div></div>
+              <div class="d-flex align-items-center text-black mt-2 p-1 fs-6">Doctor Fee's:&nbsp; <div class="text-body-secondary fs-6">{{item.doc_fee}}</div></div>
               <div class="d-flex align-items-center text-black p-1">Status:<div class="text-success-emphasis font-weight-bold fs-6">&nbsp;{{item.status}}</div></div>
 
             </div>
           </div>
-        
 
-        
-
-     
     </div>
-
-
-
-    
 
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog  modal-dialog-centered modal-dialog-scrollable">
@@ -60,7 +53,7 @@
                     <div class="d-flex flex-row justify-content-between mt-1 w-100 px-2">
             
                     <div class="form-floating mb-3 p-1 w-100 flex-fill">
-                        <input type="text" class="form-control" name="symptoms" id="symptoms" placeholder="name@example.com" autocomplete="email" required>
+                        <input type="text" class="form-control" name="symptoms" maxlength="35" id="symptoms" placeholder="name@example.com" autocomplete="email" required>
                         <label for="symptoms" name="symptoms" class="d-flex">Symptoms</label>
                     </div>
                     </div>

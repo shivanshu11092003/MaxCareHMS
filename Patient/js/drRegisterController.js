@@ -1,4 +1,4 @@
-const baseURL = "10.21.97.74"
+const baseURL = "10.21.96.74"
 
 myApp.controller("drRegisterController", ["$http", "$location", function ($http, $location) {
 

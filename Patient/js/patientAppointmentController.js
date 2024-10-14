@@ -1,4 +1,4 @@
-const baseURL = "10.21.97.74"
+const baseURL = "10.21.96.74"
 
 
 myApp.controller("patientAppointmentController", ["$http", "$location", function ($http, $location) {
@@ -10,7 +10,6 @@ myApp.controller("patientAppointmentController", ["$http", "$location", function
 
     }
     $http(doctorInfoRequest).then((response) => {
-        console.log(response.data)
         myThis.doctors = response.data
     })
 
@@ -23,7 +22,6 @@ myApp.controller("patientAppointmentController", ["$http", "$location", function
     
         }
         $http(getAppointmentData).then((response) => {
-            console.log(response.data)
             myThis.appointments = response.data
         })
 

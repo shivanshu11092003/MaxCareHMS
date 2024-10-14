@@ -159,7 +159,7 @@ myApp.config(function ($stateProvider, $urlRouterProvider) {
   var drprescriptionState = {
     name: "doctor.drprescription",
     parent:'doctor',
-    url: "/drprescription",
+    url: "/drprescription/:id",
     templateUrl: "/Doctor/template/prescriptionDrTemplate.html",
     controller: "drprescriptionController", 
 

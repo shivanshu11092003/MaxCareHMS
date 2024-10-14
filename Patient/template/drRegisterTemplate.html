@@ -61,11 +61,10 @@
 
                 </select>
                 <label for="degree">Degree</label>
-                <div class="text-danger" ng-show="drRegister.degree">Put valid issue</div>
 
             </div>
             <div class="form-floating w-50 p-1">
-                <select class="form-select" id="maritalStatus" name="specialization">
+                <select class="form-select" id="specialization" name="specialization">
                     <option value="">Select </option>
                     <option value="{{item}}" ng-repeat="item in drRegister.specializationArray track by $index">{{item}}
                     </option>
@@ -89,7 +88,7 @@
 
         <div class="d-flex flex-column flex-sm-row justify-content-between mt-1 w-100 px-2">
             <div class="form-floating w-auto flex-fill p-1 ">
-                <input type="file" accept="image/*" class="form-control" name="file" id="email" placeholder="" required>
+                <input type="file" accept="image/*" class="form-control" name="file" id="file" placeholder="" required>
                 <label for="file" class="d-flex">Photo <div class="text-danger"> &nbsp;*</div></label>
                 <div class="text-danger" ng-model="drRegister.image">{{drRegister.image}}</div>
 
