@@ -1,12 +1,12 @@
-const baseURL = "10.21.96.74"
 
 
-myApp.controller("patientAppointmentController", ["$http", "$location", function ($http, $location) {
+myApp.controller("patientAppointmentController", ["$http", "$location","baseURL", 
+    function ($http, $location,baseURL) {
 
     const myThis = this
     const doctorInfoRequest = {
         method: "GET",
-        url: `https://${baseURL}:8000/maxcare_patient/info/`
+        url: `https://${baseURL.ip}:8000/maxcare_patient/info/`
 
     }
     $http(doctorInfoRequest).then((response) => {
@@ -16,7 +16,7 @@ myApp.controller("patientAppointmentController", ["$http", "$location", function
     function getData(){
         const getAppointmentData = {
             method: "GET",
-            url: `https://${baseURL}:8000/maxcare_patient/book_appointments/`,
+            url: `https://${baseURL.ip}:8000/maxcare_patient/book_appointments/`,
             withCredentials:true
 
     
@@ -41,7 +41,7 @@ myApp.controller("patientAppointmentController", ["$http", "$location", function
 
         const doctorInfoRequest = {
             method: "POST",
-            url: `https://${baseURL}:8000/maxcare_patient/book_appointments/`,
+            url: `https://${baseURL.ip}:8000/maxcare_patient/book_appointments/`,
             data:formData,
             headers: {
                 "Content-Type": undefined
@@ -52,6 +52,7 @@ myApp.controller("patientAppointmentController", ["$http", "$location", function
         }
         $http(doctorInfoRequest).then((response) => {
             console.log(response.data)
+            form.reset()
             getData();
         })
 

@@ -1,6 +1,7 @@
-const baseURL = "10.21.96.74"
 
-myApp.controller("registerController", ["$http", "$location", function ($http, $location) {
+
+myApp.controller("registerController", ["$http", "$location","baseURL",
+     function ($http, $location,baseURL) {
 
     const myThis = this
 
@@ -271,7 +272,7 @@ myApp.controller("registerController", ["$http", "$location", function ($http, $
         if(requestPass){
             var registerRequest = {
                 method:"POST",
-                url:`https://${baseURL}:8000/maxcare_patient/register/`,
+                url:`https://${baseURL.ip}:8000/maxcare_patient/register/`,
                 headers: {
                     "Content-Type": undefined
                 },

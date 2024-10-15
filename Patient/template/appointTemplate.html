@@ -5,7 +5,7 @@
 
     <div class="d-flex flex-row  align-items-start justify-content-start w-100 p-3"> 
         <div class="d-flex w-100 bg-webbg  rounded-4 text-danger fs-5 h5 mt-3 px-3"><i class="bi bi-list d-flex d-md-none m-1"></i>Appointments</div>
-        <button type="submit" class="btn btn-danger w-auto mt-2 px-3">Book&nbsp;Appointment</button>
+        <button type="submit" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-danger w-auto mt-2 px-3">Book&nbsp;Appointment</button>
     
         </div>
 
@@ -22,7 +22,7 @@
 
               <div class="d-flex align-items-center text-black mt-3 p-1 h5 fs-6">Symptoms:&nbsp;<div class="text-body-secondary fs-6">{{item.symptoms}}</div></div>
               <div class="d-flex align-items-center text-black mt-2 p-1 fs-6">Doctor:&nbsp; <div class="text-body-secondary fs-6">{{item.doctor__first_name}} {{item.doctor__last_name}}</div></div>
-              <div class="d-flex align-items-center text-black mt-2 p-1 fs-6">Doctor Fee's:&nbsp; <div class="text-body-secondary fs-6">{{item.doc_fee}}</div></div>
+              <div class="d-flex align-items-center text-black mt-2 p-1 fs-6">Doctor Fee's:&nbsp; <div class="text-black fs-6">{{item.doc_fee}}</div></div>
               <div class="d-flex align-items-center text-black p-1">Status:<div class="text-success-emphasis font-weight-bold fs-6">&nbsp;{{item.status}}</div></div>
 
             </div>

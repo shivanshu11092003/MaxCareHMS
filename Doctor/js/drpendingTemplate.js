@@ -1,11 +1,11 @@
-const baseURL = "10.21.96.74"
 
-myApp.controller("drpendingAppointmentsController", ["$http", "$location", function ($http, $location) {
+
+myApp.controller("drpendingAppointmentsController", ["$http", "$location","baseURL", function ($http ,$location,baseURL) {
     const myThis = this
     function getData(){
         const getAppointmentData = {
             method: "GET",
-            url: `https://${baseURL}:8000/maxcare_patient/book_appointments/?status=Paid`,
+            url: `https://${baseURL.ip}:8000/maxcare_patient/book_appointments/?status=Paid`,
             withCredentials:true
 
     
@@ -19,15 +19,20 @@ myApp.controller("drpendingAppointmentsController", ["$http", "$location", funct
 
     myThis.update = function($index,id){
 
-       
+        console.log($index,id)
+        const updateStatus = myThis.status[$index]
+        console.log(updateStatus)
+
+        var remark = myThis.feedBack[$index]
+        console.log(remark)
 
         const statusUpdateRequest = {
             method:"PUT",
-            url: `https://${baseURL}:8000/maxcare_patient/book_appointments/`,
+            url: `https://${baseURL.ip}:8000/maxcare_patient/book_appointments/`,
             data:{
                 id:id,
-                updated_status:myThis.status[$index],
-                // remark:myThis.remark[$index]
+                updated_status:updateStatus,
+                remark: remark
 
             },
             withCredentials:true

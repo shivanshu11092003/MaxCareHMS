@@ -1,6 +1,7 @@
-const baseURL = "10.21.96.74"
 
-myApp.controller("drRegisterController", ["$http", "$location", function ($http, $location) {
+
+myApp.controller("drRegisterController", ["$http", "$location","baseURL",
+     function ($http, $location,baseURL) {
 
     const myThis = this
 
@@ -9,6 +10,8 @@ myApp.controller("drRegisterController", ["$http", "$location", function ($http,
         const form = document.getElementById("form")
 
         const formData = new FormData(form)
+
+        
 
         const formDataObject = Object.fromEntries(formData)
 
@@ -164,7 +167,7 @@ myApp.controller("drRegisterController", ["$http", "$location", function ($http,
         if(requestPass){
             var registerRequest = {
                 method:"POST",
-                url:`https://${baseURL}:8000/maxcare_patient/register_doctor/`,
+                url:`https://${baseURL.ip}:8000/maxcare_patient/register_doctor/`,
                 headers: {
                     "Content-Type": undefined
                 },
@@ -202,7 +205,6 @@ myApp.controller("drRegisterController", ["$http", "$location", function ($http,
         "Endocrinologist",
         "Anesthesiologist",
         "Radiologist",
-        "Urologist",
         "Ophthalmologist",
         "Gastroenterologist"
     ];

@@ -1,4 +1,5 @@
-myApp.controller("reportController", ["$http", "$location", function ($http, $location) {
+myApp.controller("reportController", ["$http", "$location","baseURL",
+     function ($http, $location,baseURL) {
 
 
 

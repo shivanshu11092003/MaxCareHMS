@@ -11,12 +11,12 @@ ng-controller="drconfirmAppointmentsController as pendingAppointments" >
         </div>
 
 
-        <div class="d-flex w-100 flex-row justify-content-start align-items-start flex-wrap p-4">
+        <div class="d-flex w-100 flex-row justify-content-center align-items-center flex-wrap p-4">
 
-            <a ng-href="#!/doctor/drprescription/{{item.id}}" class="d-flex border rounded-3 m-1  shadow-sm bg-light" style="width: 19rem;height: 18.5rem;text-decoration: none;" 
+            <a ng-href="#!/doctor/drprescription/{{item.id}}" class="d-flex border rounded-3 m-1 align-items-center justify-content-center  shadow-sm bg-light w-75" style="text-decoration: none;" 
                 ng-repeat="item in pendingAppointments.appointments track by $index">
-                <div class="d-flex flex-column p-2 w-100">
-                    <div class="d-flex align-items-center justify-content-between p-1">
+                <div class="d-flex justify-content-around align-items-center  flex-row  w-100">
+                    <div class="d-flex align-items-center justify-content-between p-1 w-25">
                         <div class="card-title fs-6 text-body-secondary ">
                             Appointment {{item.id}} <div class="text-success fs-5"> {{item.prefered_date}}</div>
                         </div>
@@ -26,12 +26,12 @@ ng-controller="drconfirmAppointmentsController as pendingAppointments" >
                     <div class="d-flex align-items-center text-black mt-3 p-1 h5 fs-6">Patient Name:&nbsp;<div
                             class="text-body-secondary fs-6">{{item.patient__first_name}} {{item.patient__last_name}}</div>
                     </div>
-                    <div class="d-flex align-items-center text-black mt-3 p-1 h5 fs-6">Symptoms:&nbsp;<div
+                    <div class="d-flex align-items-center text-black mt-3 p-1 h5 fs-6 w-50">Symptoms:&nbsp;<div
                             class="text-body-secondary fs-6">{{item.symptoms}}</div>
                     </div>
-                    <div class="d-flex align-items-center text-black mt-2 p-1 fs-6">Doctor:&nbsp; <div
+                    <!-- <div class="d-flex align-items-center text-black mt-2 p-1 fs-6">Doctor:&nbsp; <div
                             class="text-body-secondary fs-6">{{item.doctor__first_name}} {{item.doctor__last_name}}</div>
-                    </div>
+                    </div> -->
                     <div class="d-flex align-items-center text-black p-1">Status:<div
                             class="text-success-emphasis font-weight-bold fs-6">&nbsp;{{item.status}}</div>
                     </div>
@@ -41,79 +41,6 @@ ng-controller="drconfirmAppointmentsController as pendingAppointments" >
     
         </div>
 
-<!-- 
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg  modal-dialog-centered modal-dialog-scrollable">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h1 class="modal-title fs-5" id="exampleModalLabel">
-                <div class="container-fluid d-flex w-auto align-items-center  flex-fill">
-                    
-                    <div class="container-fluid bg-webbg  rounded-4 text-black fs-4 h5 mt-3 px-2"> Add Medicine</div>    
-                    <img src="../../hospital.png" class="rounded mx-auto d-block mt-2"  height="30" width="30" alt="...">
-                
-                </div>
-              </h1>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body d-flex flex-fill flex-column border align-items-center shadow-sm justify-content-start bg-light">
-                <form id="form" class="d-flex flex-column  align-items-center justify-content-center w-100  mt-2   bg-transparent">
-        
-             
-                
-                 
-                    <div class="d-flex flex-column justify-content-between mt-1 w-100 px-2">
-            
-                    <div class="form-floating mb-3 p-1 w-100 d-flex flex-fill">
-
-                    
-
-                    <div class="d-flex flex-row justify-content-between mt-1 w-100 px-2">
-                        <div class="form-floating w-50 mb-3 p-1  flex-fill">
-                            <input type="text" class="form-control" name="name" ng-model="pendingAppointments.name" maxlength="35" id="symptoms" placeholder=""  required>
-                            <label for="name">Medicine Name </label>
-
-                        </div>
-
-            
-                   
-                        <div class="form-floating w-50 mb-3 p-1  flex-fill">
-                        <input type="date" class="form-control" name="medicine" ng-model="pendingAppointments.date" maxlength="35" id="symptoms" placeholder=""  required>
-
-                            <label for="specialization">Till Prescribed </label>
-                            <div class="text-danger" ng-show="patientAppoint.degree">Put valid issue</div>
-                
-                        </div>
-                        <div class="form-floating w-50 mb-3 p-1  flex-fill">
-                            <select class="form-select" id="doctors" name="doc_id" ng-model="pendingAppointments.frequency">
-                                <option value="">Time's a day </option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                
-                
-                            </select>
-                            <label for="degree">Doctor</label>
-                            <div class="text-danger" ng-show="patientAppoint.degree">Put valid issue</div>
-                
-                        </div>
-                      </div>  
-
-                    </div>
-                    <button type="button" class="btn btn-danger p-2 h-auto"  ng-click="pendingAppointments.add()"  >Add</button>
-
-
-                    </div>
-                </form>
-
-            
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-black" data-bs-dismiss="modal">Close</button>
-            </div>
-          </div>
-        </div>
-      </div> -->
 </div>
 
 

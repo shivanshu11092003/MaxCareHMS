@@ -1,12 +1,11 @@
-const baseURL = "10.21.96.74"
-myApp.controller("receptionistAppointmentController", ["$http", "$location", function ($http, $location) {
+myApp.controller("receptionistAppointmentController", ["$http","baseURL", "$location", function ($http, baseURL,$location) {
 
 
 
 
       const getAppointmentData = {
         method: "GET",
-        url: `https://${baseURL}:8000/maxcare_patient/analytics`,
+        url: `https://${baseURL.ip}:8000/maxcare_patient/analytics`,
         withCredentials:true
 
 

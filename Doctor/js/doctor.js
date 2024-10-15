@@ -1,12 +1,13 @@
-const baseURL = "10.21.96.74"
 
-myApp.controller("doctorController", ["$http", "$location", function ($http, $location) {
+
+myApp.controller("doctorController", ["$http", "$location","baseURL",
+     function ($http, $location,baseURL) {
 
     const myThis = this;
 
     var registerRequest = {
         method:"GET",
-        url:`https://${baseURL}:8000/maxcare_patient/signin/`,
+        url:`https://${baseURL.ip}:8000/maxcare_patient/signin/`,
 
         withCredentials:true
     }
@@ -27,7 +28,7 @@ myApp.controller("doctorController", ["$http", "$location", function ($http, $lo
 
     const doctorInfoRequest = {
         method: "GET",
-        url: `https://${baseURL}:8000/maxcare_patient/side_panel/`,
+        url: `https://${baseURL.ip}:8000/maxcare_patient/side_panel/`,
         withCredentials:true
 
 
@@ -40,7 +41,7 @@ myApp.controller("doctorController", ["$http", "$location", function ($http, $lo
     myThis.logout = function(){
         const logoutRequest = {
             method: "GET",
-            url: `https://${baseURL}:8000/maxcare_patient/logout/`,
+            url: `https://${baseURL.ip}:8000/maxcare_patient/logout/`,
             withCredentials:true
     
     

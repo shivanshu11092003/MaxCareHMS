@@ -23,7 +23,7 @@ ng-controller="drprescriptionController as pendingAppointments" >
 
                 
 
-                <div class="d-flex flex-row justify-content-between mt-1 w-100 px-2">
+                <div class="d-flex flex-row align-items-center justify-content-center mt-1 w-100 px-2">
                     <div class="form-floating w-50 mb-3 p-1  flex-fill">
                         <input type="text" class="form-control" name="name" ng-model="pendingAppointments.name" maxlength="35" id="symptoms" placeholder=""  required>
                         <label for="name">Medicine Name </label>
@@ -52,13 +52,17 @@ ng-controller="drprescriptionController as pendingAppointments" >
                         <div class="text-danger " ng-show="patientAppoint.degree">Put valid issue</div>
             
                     </div>
+                    <div class="form-floating w-50 mb-3 p-1  flex-fill">
+                      <button type="button" class="btn btn-danger p-2 h-auto w-auto"  ng-click="pendingAppointments.add()"  >Add Medicine</button>
+
+                    </div>
+
                   </div>  
 
                 </div>
 
 
                 </div>
-                <button type="button" class="btn btn-danger p-2 h-auto w-auto"  ng-click="pendingAppointments.add()"  >Add</button>
 
             </form>
 
@@ -74,10 +78,10 @@ ng-controller="drprescriptionController as pendingAppointments" >
                 </thead>
                 <tbody>
                   <tr ng-repeat="item in pendingAppointments.medicineArray track by $index">
-                    <th scope="row">{{item.medicineNo}}</th>
-                    <td>{{item.medicineName}}</td>
-                    <td>{{item.prescribeDate}}</td>
-                    <td>{{item.inDay}}</td>
+                    <th scope="row">{{$index+1}}</th>
+                    <td>{{item.medicine_name}}</td>
+                    <td>{{item.valid_date}}</td>
+                    <td>{{item.frequency}}</td>
 
                   </tr>
 

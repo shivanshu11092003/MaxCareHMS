@@ -1,5 +1,5 @@
-const baseURL = "10.21.96.74"
-myApp.controller("loginController", ["$http", "$location","$state", function ($http, $location) {
+myApp.controller("loginController", ["$http", "$location","baseURL", 
+    function ($http, $location,baseURL) {
 
     const myThis = this
 
@@ -10,7 +10,7 @@ myApp.controller("loginController", ["$http", "$location","$state", function ($h
     }
     var registerRequest = {
         method:"GET",
-        url:`https://${baseURL}:8000/maxcare_patient/signin/`,
+        url:`https://${baseURL.ip}:8000/maxcare_patient/signin/`,
 
         withCredentials:true
     }
@@ -36,7 +36,7 @@ myApp.controller("loginController", ["$http", "$location","$state", function ($h
       
             var registerRequest = {
                 method:"POST",
-                url:`https://${baseURL}:8000/maxcare_patient/signin/`,
+                url:`https://${baseURL.ip}:8000/maxcare_patient/signin/`,
                 headers: {
                     "Content-Type": undefined
                 },

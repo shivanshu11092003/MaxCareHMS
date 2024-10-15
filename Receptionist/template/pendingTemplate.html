@@ -23,7 +23,7 @@
                         <select class="form-select" id="status" name="status"
                             ng-model="pendingAppointments.status[$index]"
                             ng-click="pendingAppointments.update($index,item.id)">
-                            <option value="">Select to confirm</option>
+                            <option value="">Pending</option>
                             <option value="Request Initiated">Confirm</option>
                             <option value="Rejected">Reject</option>
 
@@ -47,9 +47,9 @@
 
 
 
-                <!-- <div class="input-group mb-3">
+                <div class="input-group mb-3">
                 <input type="text" class="form-control" placeholder="remark" ng-model="pendingAppointments.feedBack[$index]" aria-label="Username" aria-describedby="basic-addon1">
-                </div> -->
+                </div>
   
 
             </div>
