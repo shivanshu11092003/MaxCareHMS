@@ -11,19 +11,23 @@ myApp.controller("drprescriptionController", ["$http", "$location","$stateParams
     
 
     myThis.medicineArray = []
-    var getPrescription = {
-        method:"GET",
-        url: `https://${baseURL.ip}:8000/maxcare_patient/manage_prescriptions/?id=${appointmentID}`,
-        withCredentials:true
 
+    function getAppointmentData(){
+        var getPrescription = {
+            method:"GET",
+            url: `https://${baseURL.ip}:8000/maxcare_patient/manage_prescriptions/?id=${appointmentID}`,
+            withCredentials:true
+           }
+           $http(getPrescription).then((response) => {
+            console.log(response.data)
+            myThis.medicineArray = response.data
+    
+    
+        })
 
-       }
-       $http(getPrescription).then((response) => {
-        console.log(response.data)
-        myThis.medicineArray = response.data
-
-
-    })
+    }
+    getAppointmentData();
+   
 
 
     myThis.add = function(){
@@ -34,8 +38,6 @@ myApp.controller("drprescriptionController", ["$http", "$location","$stateParams
        const myDate = dateFormat.getFullYear() + "-" + (dateFormat.getMonth()+1) + "-" + dateFormat.getDate()
        console.log(myDate)
        const frequency = myThis.frequency
-
-    
 
        var postPrescription = {
         method:"POST",
@@ -53,17 +55,15 @@ myApp.controller("drprescriptionController", ["$http", "$location","$stateParams
        }
        $http(postPrescription).then((response) => {
         console.log(response.status)
+        if(response.status == 200){
+            getAppointmentData()
+        }
 
 
     })
-       
-       count++
        myThis.name =""
        myThis.date =""
        myThis.frequency =""
-
-
-
 
        console.log(myThis.medicineArray)
 

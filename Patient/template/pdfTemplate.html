@@ -1,0 +1,46 @@
+<div class="d-flex flex-fill flex-column border shadow-sm justify-content-start min-vh-100 w-100 bg-white"
+ng-controller="pdfController as pdf" >
+
+
+
+    <div class="d-flex flex-row  align-items-start justify-content-start w-100 p-3"> 
+        <div class="d-flex w-100 bg-webbg  rounded-4 text-danger fs-5 h5 mt-3 px-3">
+            <i class="bi bi-list d-flex d-md-none m-1"></i>
+            Prescription Of Appointment {{pdf.id}}</div>
+            <button type="submit" ng-click="pdf.print()" class="btn btn-danger w-auto mt-2 px-3">Print</button>
+
+    
+        </div>
+
+        <div class="d-flex w-100 flex-row justify-content-start align-items-start flex-wrap p-4">
+
+
+
+            <table id="tab" class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Medicine Name</th>
+                    <th scope="col">Prescribed Till Date</th>
+                    <th scope="col">In a Day(times)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr ng-repeat="item in pdf.medicineArray track by $index">
+                    <th scope="row">{{$index+1}}</th>
+                    <td>{{item.medicine_name}}</td>
+                    <td>{{item.valid_date}}</td>
+                    <td>{{item.frequency}}</td>
+
+                  </tr>
+
+                </tbody>
+                
+              </table>
+
+    
+    
+        </div>
+    
+</div>
+

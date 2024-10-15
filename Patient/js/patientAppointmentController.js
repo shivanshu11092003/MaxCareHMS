@@ -52,7 +52,7 @@ myApp.controller("patientAppointmentController", ["$http", "$location","baseURL"
         }
         $http(doctorInfoRequest).then((response) => {
             console.log(response.data)
-            form.reset()
+            // form.reset()
             getData();
         })
 

@@ -70,6 +70,16 @@ myApp.config(function ($stateProvider, $urlRouterProvider) {
 
 
   };
+  var prescriptionPDFState = {
+    name: "patient.prescriptionPdf",
+    parent:'patient',
+    url: "/prescriptionPdf/:id",
+    templateUrl: "Patient/template/pdfTemplate.html",
+
+
+  };
+  $stateProvider.state("prescriptionPdf", prescriptionPDFState);
+
 
   var receptionistState = {
     name:"receptionist",
@@ -158,6 +168,15 @@ myApp.config(function ($stateProvider, $urlRouterProvider) {
 
   };
   $stateProvider.state("drconfirmAppointments", drconfirmAppointmentsState);
+  var prescribedAppointmentsState = {
+    name: "doctor.prescribedAppointments",
+    parent:'doctor',
+    url: "/prescribedAppointments",
+    templateUrl: "/Doctor/template/prescribedTemplate.html",
+    controller: "prescribedAppointmentsController", 
+
+  };
+  $stateProvider.state("prescribedAppointments", prescribedAppointmentsState);
 
   var drprescriptionState = {
     name: "doctor.drprescription",

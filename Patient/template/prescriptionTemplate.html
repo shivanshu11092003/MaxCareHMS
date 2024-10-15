@@ -14,9 +14,8 @@ ng-controller="prescriptionController as pendingAppointments" >
 
         <div class="d-flex w-100 flex-row justify-content-center align-items-center flex-wrap p-4">
 
-            <a ng-href="#!/doctor/drprescription/{{item.id}}" class="d-flex border rounded-3 m-1 align-items-center justify-content-center  shadow-sm bg-light w-75" style="text-decoration: none;" 
-                ng-repeat="item in pendingAppointments.appointments | filter:Prescribed">
-                <div class="d-flex justify-content-around align-items-center  flex-row  w-100">
+            <div class="d-flex border rounded-3 m-1 align-items-center justify-content-center  shadow-sm bg-light w-100" style="text-decoration: none;">
+                <!-- <div class="d-flex justify-content-around align-items-center  flex-row  w-100">
                     <div class="d-flex align-items-center justify-content-between p-1 w-25">
                         <div class="card-title fs-6 text-body-secondary ">
                             Appointment {{item.id}} <div class="text-success fs-5"> {{item.prefered_date}}</div>
@@ -30,14 +29,32 @@ ng-controller="prescriptionController as pendingAppointments" >
                     <div class="d-flex align-items-center text-black mt-3 p-1 h5 fs-6 w-50">Symptoms:&nbsp;<div
                             class="text-body-secondary fs-6">{{item.symptoms}}</div>
                     </div>
-                    <!-- <div class="d-flex align-items-center text-black mt-2 p-1 fs-6">Doctor:&nbsp; <div
-                            class="text-body-secondary fs-6">{{item.doctor__first_name}} {{item.doctor__last_name}}</div>
-                    </div> -->
+
                     <div class="d-flex align-items-center text-black p-1">Status:<div
                             class="text-success-emphasis font-weight-bold fs-6">&nbsp;{{item.status}}</div>
                     </div>
     
-                </div>
+                </div> -->
+                <table  class="table">
+                    <thead>
+                      <tr class="bg-light">
+                        <th scope="col" class="bg-light">Appointment Date</th>
+                        <th scope="col" class="bg-light">Doctor Name</th>
+                        <th scope="col" class="bg-light">Symptoms</th>
+                        <th scope="col" class="bg-light">Status</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr ng-repeat="item in pendingAppointments.appointments">
+                        <td class="text-success">{{item.prefered_date}}</td>
+                        <td class="">{{item.doctor__first_name}} {{item.doctor__last_name}}</td>
+                       
+                        <td>{{item.symptoms}}</td>
+                        <td><a ng-href="#!/patient/prescriptionPdf/{{item.id}}" style="text-decoration: none;">View Prescription</a></td>
+                      </tr>
+                     
+                    </tbody>
+                  </table>
             </a>
     
         </div>
