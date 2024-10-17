@@ -19,12 +19,12 @@
         
         <div class="d-flex flex-column flex-sm-row  mt-1 w-100 px-2">
             <div class="form-floating w-auto flex-fill p-1 ">
-                <input type="text" class="form-control" name="first_name" id="first_name" placeholder="First Name"   >
+                <input type="text" class="form-control" name="first_name" id="first_name" placeholder="First Name" required>
                 <label for="first_name"  class="d-flex fs-7">First Name<div class="text-danger"> &nbsp;*</div></label>
                 <div class="text-danger" ng-model="register.first_name">{{register.first_name}}</div>
             </div>
             <div class="form-floating w-auto flex-fill p-1">
-                <input type="text" class="form-control" name="last_name" id="last_name" placeholder="Password"  >
+                <input type="text" class="form-control" name="last_name" id="last_name" placeholder="Password" required >
                 <label for="last_name"  class="d-flex">Last Name <div class="text-danger"> &nbsp;*</div></label>
                 <div class="text-danger" ng-model="register.last_name">{{register.last_name}}</div>
 
@@ -34,20 +34,20 @@
         </div>
         <div class="d-flex flex-column flex-sm-row justify-content-between mt-1 w-100 px-2">
             <div class="form-floating w-auto flex-fill p-1 ">
-                <input type="email" class="form-control" name="email" id="email" placeholder="name@example.com"   autocomplete="email">
+                <input type="email" class="form-control" name="email" id="email" placeholder="name@example.com" required autocomplete="email">
                 <label for="email"  class="d-flex">Email <div class="text-danger"> &nbsp;*</div></label>
                 <div class="text-danger" ng-model="register.email">{{register.email}}</div>
 
             </div>
             <div class="form-floating w-auto flex-fill p-1">
-                <input type="number" class="form-control" name="mobile" id="mobileNo" placeholder="Password" min="6666666666"  max="9999999999"  >
+                <input type="number" class="form-control" name="mobile" id="mobileNo" placeholder="" min="6666666666"  max="9999999999" maxlength="10" required  >
                 <label for="mobileNo"  class="d-flex">Mobile Number<div class="text-danger"> &nbsp;*</div></label>
-                <div class="text-danger" ng-model="register.mobile">{{register.mobile}}</div>
+           
 
             </div>
             <div class="form-floating w-auto flex-fill p-1">
-                <input type="number" class="form-control" name="emergency_contact" id="emergencyNo" placeholder="Password" >
-                <label for="emergencyNo"  class="d-flex">Emergency No.</label>
+                <input type="number" class="form-control" name="emergency_contact" id="emergencyNo" min="6666666666"  max="9999999999" maxlength="10" placeholder="" required >
+                <label for="emergencyNo"  class="d-flex">Emergency No.<div class="text-danger"> &nbsp;*</div></label>
                 <div class="text-danger" ng-model="register.emergency_contact">{{register.emergency_contact}}</div>
 
             </div>
@@ -55,7 +55,7 @@
 
         <div class="d-flex flex-row justify-content-between mt-1 w-100 px-2">
             <div class="form-floating  w-auto flex-fill p-1 ">
-                <select class="form-select" id="gender" name="gender"  >
+                <select class="form-select" id="gender" name="gender"  required >
                     <option value="">Select</option>
                     <option value="M">Male</option>
                     <option value="F">Female</option>
@@ -66,7 +66,7 @@
 
             </div>
             <div class="form-floating  w-auto flex-fill p-1 ">
-                <select class="form-select" id="maritalStatus" name="maritalStatus"  >
+                <select class="form-select" id="maritalStatus" name="maritalStatus">
                     <option value="">Select </option>
                     <option value="M">Married</option>
                     <option value="UM">Un-Married</option>
@@ -77,7 +77,7 @@
 
             </div>
             <div class="form-floating  w-auto flex-fill p-1">
-                <input type="Date" class="form-control" id="dob" name="dob" placeholder=""    >
+                <input type="Date" class="form-control" id="dob" name="dob" placeholder="" max="{{register.myDate}}" required  >
                 <label for="dob" class="d-flex">DOB<div class="text-danger"> &nbsp;*</div></label>
                 <div class="text-danger" ng-model="register.dob">{{register.dob}}</div>
 
@@ -85,14 +85,14 @@
         </div>
         <div class="d-flex flex-row justify-content-between mt-1 w-100 px-2">
             <div class="form-floating w-auto flex-fill p-1 ">
-                <input type="number" step="0.01" class="form-control" id="Weight" name="Weight" placeholder=""  >
+                <input type="number" step="0.01" class="form-control" id="Weight" name="Weight" placeholder="" required >
                 <label for="Weight" class="d-flex">Weight in kg <div class="text-danger"> &nbsp;*</div></label>
                 <div class="text-danger" ng-model="register.Weight">{{register.Weight}}</div>
 
 
             </div>
             <div class="form-floating w-auto flex-fill p-1">
-                <input type="number" step="0.01"    type="password" class="form-control" id="Height" name="height" placeholder=""  >
+                <input type="number" step="0.01"    type="password" class="form-control" id="Height" name="height" placeholder="" required  >
                 <label for="Height" class="d-flex">Height in cm<div class="text-danger"> &nbsp;*</div></label>
                 <div class="text-danger" ng-show="register.height">{{register.height}}</div>
 
@@ -101,7 +101,7 @@
 
         <div class="d-flex flex-row justify-content-between mt-1 w-100 px-2">
             <div class="form-floating w-50 p-1">
-                <select class="form-select" id="diabitic" name="diabitic"  >
+                <select class="form-select" id="diabitic" name="diabitic"  required>
                     <option value="">Select</option>
                     <option value="1">Diabitic</option>
                     <option value="0">Non-Diabitic</option>
@@ -112,7 +112,7 @@
 
             </div>
             <div class="form-floating w-50 p-1">
-                <select class="form-select" id="bloodGroup" name="blood_Group"  >
+                <select class="form-select" id="bloodGroup" name="blood_Group" required >
                     <option value="">Select</option>
                     <option value="A+">A+</option>
                     <option value="A-">A-</option>
@@ -125,7 +125,6 @@
 
                 </select>
                 <label for="bloodGroup">Blood Group</label>
-                <div class="text-danger" ng-show="register.blood_Group">Please select</div>
 
             </div>
         </div>
@@ -133,7 +132,6 @@
             <div class="form-floating  w-50 p-1 ">
                 <input type="text" class="form-control" id="allergy" name="allergy" placeholder="">
                 <label for="allergy">Allergy</label>
-                <div class="text-danger" ng-show="register.allergy">Put valid allergy</div>
 
             </div>
             <div class="form-floating w-50 p-1">
@@ -145,16 +143,16 @@
         </div>
         <div class="d-flex flex-row justify-content-between mt-1 w-100 px-2">
             <div class="form-floating w-50 p-1 ">
-                <select class="form-select" name="state" id="state"  >
+                <select class="form-select" name="state" id="state"  required>
                     <option value="">Select</option>
                     <option value="{{item}}" ng-repeat="item in register.stateArray track by $index">{{item}}</option>
                 </select>
                 <label for="state" class="d-flex">State<div class="text-danger"> &nbsp;*</div></label>
-                <div class="text-danger" ng-model="register.state">{{register.state  }}</div>
+                <div class="text-danger" ng-model="register.state">{{register.state }}</div>
 
             </div>
             <div class="form-floating w-50 p-1">
-                <input type="text" class="form-control" id="city" name="city" placeholder=""  >
+                <input type="text" class="form-control" id="city" name="city" placeholder="" required >
                 <label for="city" class="d-flex">City<div class="text-danger"> &nbsp;*</div></label>
                 <div class="text-danger" ng-model="register.city">{{register.city}}</div>
 
@@ -163,13 +161,12 @@
 
         <div class="d-flex flex-row justify-content-between mt-1 px-2 w-100">
             <div class="form-floating w-50 p-1 ">
-                <input type="number" class="form-control" name="pincode" id="Pincode"  placeholder="" >
+                <input type="number" class="form-control" name="pincode" id="Pincode" max="999999" placeholder="" >
                 <label for="Pincode">Pincode</label>
-                <div class="text-danger" ng-model="register.pincode">{{register.pincode}}</div>
 
             </div>
             <div class="form-floating w-50 p-1">
-                <input type="text" class="form-control" name="address" id="Address" placeholder="" autocomplete="address-level1"  >
+                <input type="text" class="form-control" name="address" id="Address" placeholder="" autocomplete="address-level1" required  >
                 <label for="Address" class="d-flex">Address<div class="text-danger"> &nbsp;*</div></label>
                 <div class="text-danger" ng-model="register.address">{{register.address}}</div>
 
@@ -179,13 +176,13 @@
             <div class="form-floating mb-3 w-50 p-1 ">
                 <input type="password" class="form-control" name="passwd1" id="password" placeholder=""  >
                 <label for="password"  class="d-flex">Password<div class="text-danger"> &nbsp;*</div></label>
-                <div class="text-danger" ng-model="register.passwd1">{{register.passwd1}}</div>
+                <div class="text-danger p-1" ng-model="register.passwd1">{{register.passwd1}}</div>
 
             </div>
             <div class="form-floating w-50 p-1">
                 <input type="password" class="form-control" name="passwd2" id="cpassword" placeholder="Password"  >
                 <label for="cpassword" class="d-flex">Confirm Password<div class="text-danger"> &nbsp;*</div></label>
-                <div class="text-danger" ng-model="register.passwd2">{{register.passwd2}}</div>
+                <div class="text-danger p-1" ng-model="register.passwd2">{{register.passwd2}}</div>
 
             </div>
         </div>
