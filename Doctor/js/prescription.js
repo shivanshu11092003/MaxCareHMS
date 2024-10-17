@@ -1,7 +1,7 @@
 
 
-myApp.controller("drprescriptionController", ["$http", "$location","$stateParams","baseURL",
-     function ($http, $location,$stateParams,baseURL) {
+myApp.controller("drprescriptionController", ["$http","$stateParams","baseURL",
+     function ($http,$stateParams,baseURL) {
     const myThis = this
 
  

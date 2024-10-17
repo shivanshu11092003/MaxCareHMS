@@ -1,5 +1,5 @@
-myApp.controller("loginController", ["$http", "$location","baseURL", 
-    function ($http, $location,baseURL) {
+myApp.controller("loginController", ["$http", "$location","baseURL","service","$state", 
+    function ($http, $location,baseURL,service,$state) {
 
     const myThis = this
 
@@ -8,25 +8,13 @@ myApp.controller("loginController", ["$http", "$location","baseURL",
     myThis.redirect = function () {
         $location.url("/register")
     }
-    var registerRequest = {
-        method:"GET",
-        url:`https://${baseURL.ip}:8000/maxcare_patient/signin/`,
+    service.getService("GET", "signin").then((response) => {
+        console.log(response.route)
 
-        withCredentials:true
-    }
-
-    $http(registerRequest).then((response)=>{
-
-        if(response.status == 200){
-            $location.url(response.data.route)
-            // $state.go('patient.patientappointment');
-
-        }
-
-
-    }).catch((e)=>{
-        console.log(e.status,e)
-    })
+        $location.url(response.route)
+        
+      })
+    
 
     myThis.login = function(){
         const form = document.getElementById("form")
@@ -45,13 +33,8 @@ myApp.controller("loginController", ["$http", "$location","baseURL",
             }
         
             $http(registerRequest).then((response)=>{
+                $location.url(response.data.route)
 
-                if(response.status == 200){
-                    $location.url(response.data.route)
-
-                }
-    
-        
             }).catch((e)=>{
                 myThis.errorMsg = e.data.status
 

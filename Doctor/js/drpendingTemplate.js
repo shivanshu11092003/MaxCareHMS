@@ -1,19 +1,15 @@
 
 
-myApp.controller("drpendingAppointmentsController", ["$http", "$location","baseURL", function ($http ,$location,baseURL) {
+myApp.controller("drpendingAppointmentsController", ["$http","baseURL","service", 
+    function ($http ,baseURL,service) {
     const myThis = this
+
+  
     function getData(){
-        const getAppointmentData = {
-            method: "GET",
-            url: `https://${baseURL.ip}:8000/maxcare_patient/book_appointments/?status=Paid`,
-            withCredentials:true
-
-    
-        }
-        $http(getAppointmentData).then((response) => {
+        service.statusWiseData("GET","Paid").then((response=>{
+            console.log(response)
             myThis.appointments = response.data
-        })
-
+        }))
     }
     getData();
 

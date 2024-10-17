@@ -1,7 +1,7 @@
 var myApp = angular.module("myApp", ["ui.router"]);
 
-myApp.constant("baseURL",{
-  ip:"10.21.98.174"
+myApp.constant("baseURL", {
+  ip: "10.21.98.197"
 })
 myApp.config(function ($stateProvider, $urlRouterProvider) {
   var loginState = {
@@ -30,25 +30,25 @@ myApp.config(function ($stateProvider, $urlRouterProvider) {
   };
 
   var patientState = {
-    name:"patient",
-    url:"/patient",
+    name: "patient",
+    url: "/patient",
     templateUrl: "Patient/template/patientTemplate.html",
     controller: "patientController",
-    
+
   }
 
 
   var patientAppointmentState = {
     name: "patient.patientappointment",
-    parent:'patient',
+    parent: 'patient',
     url: "/patientappointment",
     templateUrl: "Patient/template/appointTemplate.html",
-    controller: "patientAppointmentController", 
+    controller: "patientAppointmentController",
 
   };
   var transactionState = {
     name: "patient.transaction",
-    parent:'patient',
+    parent: 'patient',
     url: "/transaction",
     templateUrl: "Patient/template/transactionTemplate.html",
 
@@ -56,7 +56,7 @@ myApp.config(function ($stateProvider, $urlRouterProvider) {
   };
   var reportState = {
     name: "patient.report",
-    parent:'patient',
+    parent: 'patient',
     url: "/report",
     templateUrl: "Patient/template/reportTemplate.html",
 
@@ -64,7 +64,7 @@ myApp.config(function ($stateProvider, $urlRouterProvider) {
   };
   var prescriptionState = {
     name: "patient.prescription",
-    parent:'patient',
+    parent: 'patient',
     url: "/prescription",
     templateUrl: "Patient/template/prescriptionTemplate.html",
 
@@ -72,7 +72,7 @@ myApp.config(function ($stateProvider, $urlRouterProvider) {
   };
   var prescriptionPDFState = {
     name: "patient.prescriptionPdf",
-    parent:'patient',
+    parent: 'patient',
     url: "/prescriptionPdf/:id",
     templateUrl: "Patient/template/pdfTemplate.html",
 
@@ -82,20 +82,20 @@ myApp.config(function ($stateProvider, $urlRouterProvider) {
 
 
   var receptionistState = {
-    name:"receptionist",
-    url:"/receptionist",
+    name: "receptionist",
+    url: "/receptionist",
     templateUrl: "/Receptionist/template/receptionistTemplate.html",
     controller: "receptionistController",
-    
+
   }
   $stateProvider.state("receptionist", receptionistState);
 
   var appointmentsState = {
     name: "receptionist.appointments",
-    parent:'receptionist',
+    parent: 'receptionist',
     url: "/appointments",
     templateUrl: "/Receptionist/template/appointmentsStatisticsiTemplate.html",
-    controller: "receptionistAppointmentController", 
+    controller: "receptionistAppointmentController",
 
   };
   $stateProvider.state("appointments", appointmentsState);
@@ -103,87 +103,87 @@ myApp.config(function ($stateProvider, $urlRouterProvider) {
 
   var pendingAppointmentsState = {
     name: "receptionist.pendingAppointments",
-    parent:'receptionist',
+    parent: 'receptionist',
     url: "/pendingAppointments",
     templateUrl: "/Receptionist/template/pendingTemplate.html",
-    controller: "pendingAppointmentsController", 
+    controller: "pendingAppointmentsController",
 
   };
   $stateProvider.state("pendingAppointments", pendingAppointmentsState);
 
   var initiatedState = {
     name: "receptionist.initiated",
-    parent:'receptionist',
+    parent: 'receptionist',
     url: "/initiated",
     templateUrl: "/Receptionist/template/initiatedTemplate.html",
-    controller: "initiatedController", 
+    controller: "initiatedController",
 
   };
   $stateProvider.state("initiated", initiatedState);
 
   var confirmState = {
     name: "receptionist.confirm",
-    parent:'receptionist',
+    parent: 'receptionist',
     url: "/confirm",
     templateUrl: "/Receptionist/template/confirmTemplate.html",
-    controller: "confirmController", 
+    controller: "confirmController",
 
   };
   $stateProvider.state("confirm", confirmState);
 
   var transactionPatientState = {
     name: "receptionist.transaction",
-    parent:'receptionist',
+    parent: 'receptionist',
     url: "/transactionPatient",
     templateUrl: "/Receptionist/template/transactionPatientTemplate.html",
-    controller: "transactionPatientController", 
+    controller: "transactionPatientController",
 
   };
   $stateProvider.state("transactionPatient", transactionPatientState);
 
   var doctorState = {
-    name:"doctor",
-    url:"/doctor",
+    name: "doctor",
+    url: "/doctor",
     templateUrl: "/Doctor/template/doctorTemplate.html",
     controller: "doctorController",
-    
+
   }
   $stateProvider.state("doctor", doctorState);
 
   var drpendingAppointmentsState = {
     name: "doctor.drpendingAppointments",
-    parent:'doctor',
+    parent: 'doctor',
     url: "/drpendingAppointments",
     templateUrl: "/Doctor/template/drpendingTemplate.html",
-    controller: "drpendingAppointmentsController", 
+    controller: "drpendingAppointmentsController",
 
   };
   $stateProvider.state("drpendingAppointments", drpendingAppointmentsState);
   var drconfirmAppointmentsState = {
     name: "doctor.drconfirmAppointments",
-    parent:'doctor',
+    parent: 'doctor',
     url: "/drconfirmAppointments",
     templateUrl: "/Doctor/template/confirmDrTemplate.html",
-    controller: "drconfirmAppointmentsController", 
+    controller: "drconfirmAppointmentsController",
 
   };
   $stateProvider.state("drconfirmAppointments", drconfirmAppointmentsState);
   var prescribedAppointmentsState = {
     name: "doctor.prescribedAppointments",
-    parent:'doctor',
+    parent: 'doctor',
     url: "/prescribedAppointments",
     templateUrl: "/Doctor/template/prescribedTemplate.html",
-    controller: "prescribedAppointmentsController", 
+    controller: "prescribedAppointmentsController",
 
   };
   $stateProvider.state("prescribedAppointments", prescribedAppointmentsState);
 
   var drprescriptionState = {
     name: "doctor.drprescription",
-    parent:'doctor',
+    parent: 'doctor',
     url: "/drprescription/:id",
     templateUrl: "/Doctor/template/prescriptionDrTemplate.html",
-    controller: "drprescriptionController", 
+    controller: "drprescriptionController",
 
   };
   $stateProvider.state("drprescription", drprescriptionState);
@@ -204,3 +204,74 @@ myApp.config(function ($stateProvider, $urlRouterProvider) {
 
   $urlRouterProvider.otherwise("/dashboard");
 })
+
+myApp.service("service", ["$http", "baseURL", function ($http, baseURL) {
+
+  //Get
+  this.getService = function (requestMethod, apiName) {
+
+    var request = {
+      method: requestMethod,
+      url: `https://${baseURL.ip}:8000/maxcare_patient/${apiName}/`,
+      withCredentials:true
+
+    }
+    return $http(request).then((response) => {
+      return response.data
+    })
+
+  }
+  
+  //Get Data According to Status
+  this.statusWiseData = function(requestMethod,queryParameter){
+    var request ={
+      method:requestMethod,
+      url:`https://${baseURL.ip}:8000/maxcare_patient/book_appointments/?status=${queryParameter}`,
+      withCredentials:true
+
+    }
+    return $http(request).then((response) => {
+     
+      return response
+    }).catch((error)=>{
+      console.log(error);
+    })
+  }
+
+}])
+
+
+myApp.controller("dashController", ["$http", "$location", "baseURL", "service",
+  function ($http, $location, baseURL, service) {
+
+    service.getService("GET", "info").then((response) => {
+      console.log(response)
+      myThis.doctors = response
+    })
+
+
+
+
+    const myThis = this
+    myThis.ipAddress = baseURL.ip
+
+
+    myThis.login = function () {
+      $location.url("/login")
+    }
+    myThis.career = function () {
+      $location.url("/drRegister")
+    }
+    myThis.register = function () {
+      $location.url("/register")
+    }
+
+
+
+
+
+
+
+
+
+  }])  

@@ -1,59 +1,41 @@
 
 
-myApp.controller("doctorController", ["$http", "$location","baseURL",
-     function ($http, $location,baseURL) {
+myApp.controller("doctorController", ["$location","service",
+    function ($location,service) {
 
-    const myThis = this;
+        const myThis = this;
 
-    var registerRequest = {
-        method:"GET",
-        url:`https://${baseURL.ip}:8000/maxcare_patient/signin/`,
+        service.getService("GET", "signin").then((response) => {
+            console.log(response.route)
+         
+            $location.url(response.route)
 
-        withCredentials:true
-    }
-
-    $http(registerRequest).then((response)=>{
-
-        if(response.status == 200){
-            $location.url(response.data.route)
-
-        }
-
-
-    }).catch((e)=>{
-        console.log(e.status,e)
-    })
-
-   
-
-    const doctorInfoRequest = {
-        method: "GET",
-        url: `https://${baseURL.ip}:8000/maxcare_patient/side_panel/`,
-        withCredentials:true
-
-
-    }
-    $http(doctorInfoRequest).then((response) => {
-        console.log(response.data)
-        myThis.sideNaviagtion = response.data
-    })
-
-    myThis.logout = function(){
-        const logoutRequest = {
-            method: "GET",
-            url: `https://${baseURL.ip}:8000/maxcare_patient/logout/`,
-            withCredentials:true
-    
-    
-        }
-        $http(logoutRequest).then((response) => {
-            if(response.status = 200){
-                $location.url(response.data.route)
-            }
+            
         })
 
-    }
 
 
 
-}])
+        service.getService("GET", "side_panel").then((response) => {
+
+            myThis.sideNaviagtion = response
+        })
+
+        myThis.logout = function () {
+
+
+            service.getService("GET", "logout").then((response) => {
+                console.log(response)
+              
+                $location.url(response.route)
+
+                
+            })
+
+
+
+        }
+
+
+
+    }])

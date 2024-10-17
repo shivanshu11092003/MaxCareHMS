@@ -1,23 +1,16 @@
 
-myApp.controller("confirmController", ["$http","baseURL", "$location", 
-    function ($http,baseURL, $location) {
-    const myThis = this
-    function getData(){
-        const getAppointmentData = {
-            method: "GET",
-            url: `https://${baseURL.ip}:8000/maxcare_patient/book_appointments/?status=Confirmed`,
-            withCredentials:true
+myApp.controller("confirmController", ["service",
+    function (service) {
+        const myThis = this
 
-    
-        }
-        $http(getAppointmentData).then((response) => {
+        service.statusWiseData("GET", "Confirmed").then((response => {
+            console.log(response)
             myThis.appointments = response.data
-        })
-
-    }
-    getData();
-
-   
+        }))
 
 
-}])
+
+
+
+
+    }])

@@ -33,6 +33,7 @@ myApp.controller("pdfController", ["$http", "$location", "$stateParams", "baseUR
         myThis.medicineArray = []
 
         function getAppointmentData() {
+
             var getPrescription = {
                 method: "GET",
                 url: `https://${baseURL.ip}:8000/maxcare_patient/manage_prescriptions/?id=${appointmentID}`,

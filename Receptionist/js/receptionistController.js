@@ -1,54 +1,24 @@
-
-
-myApp.controller("receptionistController", ["$http","baseURL", "$location", function ($http,baseURL, $location) {
+myApp.controller("receptionistController", ["$location","service",
+     function ($location,service) {
 
     const myThis = this;
 
-    var registerRequest = {
-        method:"GET",
-        url:`https://${baseURL.ip}:8000/maxcare_patient/signin/`,
-
-        withCredentials:true
-    }
-
-    $http(registerRequest).then((response)=>{
-
-        if(response.status == 200){
-            $location.url(response.data.route)
-
-        }
-
-
-    }).catch((e)=>{
-        console.log(e.status,e)
+    service.getService("GET", "signin").then((response) => {
+        $location.url(response.route)
     })
 
-   
-
-    const doctorInfoRequest = {
-        method: "GET",
-        url: `https://${baseURL.ip}:8000/maxcare_patient/side_panel/`,
-        withCredentials:true
 
 
-    }
-    $http(doctorInfoRequest).then((response) => {
-        console.log(response.data)
-        myThis.sideNaviagtion = response.data
+    service.getService("GET", "side_panel").then((response) => {
+        myThis.sideNaviagtion = response
     })
 
-    myThis.logout = function(){
-        const logoutRequest = {
-            method: "GET",
-            url: `https://${baseURL.ip}:8000/maxcare_patient/logout/`,
-            withCredentials:true
-    
-    
-        }
-        $http(logoutRequest).then((response) => {
-            if(response.status = 200){
-                $location.url(response.data.route)
-            }
+
+    myThis.logout = function () {
+        service.getService("GET", "logout").then((response) => {
+
+            $location.url(response.route)
+
         })
 
     }
