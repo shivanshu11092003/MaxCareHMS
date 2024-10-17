@@ -23,7 +23,10 @@ myApp.controller("drpendingAppointmentsController", ["$http", "$location","baseU
         const updateStatus = myThis.status[$index]
         console.log(updateStatus)
 
-        var remark = myThis.feedBack[$index]
+        const remark = myThis.feedBack[$index]
+        
+
+        
         console.log(remark)
 
         const statusUpdateRequest = {

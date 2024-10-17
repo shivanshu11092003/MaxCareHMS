@@ -4,6 +4,8 @@ myApp.controller("patientAppointmentController", ["$http", "$location","baseURL"
     function ($http, $location,baseURL) {
 
     const myThis = this
+
+   
     const doctorInfoRequest = {
         method: "GET",
         url: `https://${baseURL.ip}:8000/maxcare_patient/info/`
@@ -52,7 +54,7 @@ myApp.controller("patientAppointmentController", ["$http", "$location","baseURL"
         }
         $http(doctorInfoRequest).then((response) => {
             console.log(response.data)
-            // form.reset()
+            form.reset()
             getData();
         })
 

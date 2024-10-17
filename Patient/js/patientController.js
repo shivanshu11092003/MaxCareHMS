@@ -4,6 +4,25 @@ myApp.controller("patientController", ["$http", "$location","baseURL",
     function ($http, $location,baseURL) {
 
     const myThis = this;
+    myThis.SideNaviagtionbtn = true
+ 
+
+
+    myThis.hide = function(){
+        myThis.divSideNaviagtionbtn = true
+        myThis.sideNaviagtion = false
+  
+    }
+    myThis.show = function(){
+        myThis.sideNaviagtion = true
+        myThis.divSideNaviagtionbtn = false
+        getPanel();
+
+
+       
+
+
+    }
     var registerRequest = {
         method:"GET",
         url:`https://${baseURL.ip}:8000/maxcare_patient/signin/`,
@@ -23,8 +42,7 @@ myApp.controller("patientController", ["$http", "$location","baseURL",
         console.log(e.status,e)
     })
 
-   
-
+   function getPanel(){
     const doctorInfoRequest = {
         method: "GET",
         url: `https://${baseURL.ip}:8000/maxcare_patient/side_panel/`,
@@ -35,6 +53,11 @@ myApp.controller("patientController", ["$http", "$location","baseURL",
     $http(doctorInfoRequest).then((response) => {
         myThis.sideNaviagtion = response.data
     })
+
+   }
+   getPanel();
+
+    
 
 
     myThis.logout = function(){

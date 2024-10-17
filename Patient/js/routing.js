@@ -1,7 +1,7 @@
 var myApp = angular.module("myApp", ["ui.router"]);
 
 myApp.constant("baseURL",{
-  ip:"10.21.98.251"
+  ip:"10.21.98.174"
 })
 myApp.config(function ($stateProvider, $urlRouterProvider) {
   var loginState = {
