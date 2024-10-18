@@ -1,7 +1,8 @@
 
 
-myApp.controller("registerController", ["$http", "$location", "baseURL",
-    function ($http, $location, baseURL) {
+myApp.controller("registerController", ["$http", "$location", "baseURL","service",
+
+    function ($http, $location, baseURL,service) {
 
         const myThis = this
 
@@ -52,6 +53,14 @@ myApp.controller("registerController", ["$http", "$location", "baseURL",
             "Puducherry"
         ]
 
+        service.getService("GET", "register").then((response) => {
+            console.log(response)
+            myThis.maritalArray = response.marital_status
+            myThis.genderArray = response.gender
+            myThis.bloodArray = response.blood
+    
+            
+          })
 
         myThis.register = function () {
 
@@ -63,10 +72,10 @@ myApp.controller("registerController", ["$http", "$location", "baseURL",
 
             var requestPass = false
 
-            const nameRegex = /^[A-Z]+[a-z]{2,25}$/
+            const nameRegex = /^[A-Z]+[a-z]{1,25}$/
             const emailRegex = /^[a-zA-Z]+[a-zA-Z0-9]+[@][a-z]+[\.][a-z]{2,}$/
             const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,16}$/
-            const mobileNoRegex = /^[6-9]+[0-9]{10}$/
+            const mobileNoRegex = /^[0-9]{10}$/
             const pincodeRegex = /^[0-9]{6}$/
 
 
@@ -79,7 +88,7 @@ myApp.controller("registerController", ["$http", "$location", "baseURL",
 
             if (fname == "" ) {
                     requestPass = false
-                    myThis.first_name = "required"
+                    myThis.first_name = "*required"
                
             }
             else {
@@ -92,13 +101,15 @@ myApp.controller("registerController", ["$http", "$location", "baseURL",
     
                     requestPass = false
                 }else{
+                    myThis.first_name = ""
+
                     requestPass = true
                 }
          
 
             }
-            if (formDataObject.last_name != "" || formData.get("last_name").match(nameRegex) == null) {
-           
+            if (formDataObject.last_name != "" ) {
+                if( formData.get("last_name").match(nameRegex) == null ){
                     Swal.fire({
                         title: "Last Name",
                         text: "contain alphabet min 2 character and first charcter is uppercase",
@@ -106,11 +117,18 @@ myApp.controller("registerController", ["$http", "$location", "baseURL",
                     });
                     requestPass = false
 
+                }else{
+                    myThis.last_name = ""
+
+                    requestPass = true
+                }
+                    
+
 
             }
             else {
-                myThis.last_name = "required"
-                requestPass = true
+                myThis.last_name = "*required"
+                requestPass = false
 
             }
             if (formDataObject.email != "" ) {
@@ -123,17 +141,19 @@ myApp.controller("registerController", ["$http", "$location", "baseURL",
                     requestPass = false
 
                 }else{
+                    myThis.email = ""
+
                     requestPass = true
                 }
 
             }
             else {
-                myThis.email = "required"
+                myThis.email = "*required"
                 requestPass = false
 
 
             }
-            if (formDataObject.mobile != "" ) {
+            if (formData.get("mobile") != "" ) {
                 if(formData.get("mobile").match(mobileNoRegex) == null){
                     Swal.fire({
                         title: "Mobille Number",
@@ -143,11 +163,13 @@ myApp.controller("registerController", ["$http", "$location", "baseURL",
                     requestPass = false
 
                 }else{
+                    myThis.mobile = ""
+
                     requestPass = true
                 }
             } else {
                 myThis.mobile = "required"
-                requestPass = true
+                requestPass = false
 
             }
 
@@ -161,6 +183,7 @@ myApp.controller("registerController", ["$http", "$location", "baseURL",
                 requestPass = true
 
             }
+
             if (formData.get("maritalStatus") == "") {
                 myThis.maritalStatus = "*required"
                 requestPass = false
@@ -193,14 +216,26 @@ myApp.controller("registerController", ["$http", "$location", "baseURL",
                 requestPass = true
 
             }
-            if (formDataObject.height == "") {
+            const heightRegex = /^[0-9]{1,4}$/
+            if (formData.get("height") == "") {
                 myThis.height = "*is required field"
                 requestPass = false
 
 
             } else {
-                myThis.height = ""
-                requestPass = true
+                 if(formData.get("height").match(nameRegex) == null){
+                    Swal.fire({
+                        title: "Height",
+                        text: "must be a number",
+                        icon: "error",
+                    });
+    
+                    requestPass = false
+                }else{
+                    myThis.height = ""
+                    requestPass = true
+                }
+
 
             }
             if (formDataObject.diabitic == "" ) {
@@ -309,7 +344,7 @@ myApp.controller("registerController", ["$http", "$location", "baseURL",
 
 
             } else {
-                if (formDataObject.passwd2 == formData.get()) {
+                if (formDataObject.passwd2 == formData.get("passwd1")) {
                     myThis.passwd2 = ""
                     requestPass = true
 

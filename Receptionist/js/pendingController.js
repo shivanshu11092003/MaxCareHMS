@@ -3,16 +3,22 @@
 myApp.controller("pendingAppointmentsController", ["$http","baseURL","service",
      function ($http,baseURL,service) {
     const myThis = this
+    myThis.loader = true
     function getData(){
         service.statusWiseData("GET","Pending").then((response=>{
             console.log(response)
             myThis.appointments = response.data
+            myThis.loader = false
+
         }))
         
     }
     getData();
 
     myThis.accept = function(id){
+        myThis.loader = true
+
+        console.log(id)
         const statusUpdateRequest = {
             method:"PUT",
             url: `https://${baseURL.ip}:8000/maxcare_patient/book_appointments/`,
@@ -25,19 +31,28 @@ myApp.controller("pendingAppointmentsController", ["$http","baseURL","service",
 
         }
         $http(statusUpdateRequest).then((response) => {
-                    console.log(response.status)
-                    getData();
-                    Swal.fire({
-                        title: "Accepted!",
-                        text: "Request of Patient is Initiated!",
-                        icon: "success"
-                      });
+            if(response.status == 200){
+                myThis.loader = false
+
+                console.log(response.status)
+                getData();
+
+                Swal.fire({
+                    title: "Accepted!",
+                    text: "Request of Patient is Initiated!",
+                    icon: "success"
+                  });
+
+            }
+                   
         
                 })
         
 
     }
     myThis.reject = function(id){
+        myThis.loader = true
+
         console.log(id)
         var remark = myThis.feedBack[id]
         const statusUpdateRequest = {
@@ -53,13 +68,21 @@ myApp.controller("pendingAppointmentsController", ["$http","baseURL","service",
 
         }
         $http(statusUpdateRequest).then((response) => {
-                    console.log(response.status)
-                    getData();
-                    Swal.fire({
-                        title: "Rejected!",
-                        text: "Request of Patient is Cancelled!",
-                        icon: "error"
-                      });
+
+                    
+                    if(response.status == 200){
+                        myThis.loader = true
+                        console.log(response.status)
+                        getData();
+                        Swal.fire({
+                            title: "Rejected!",
+                            text: "Request of Patient is Cancelled!",
+                            icon: "error"
+                          });
+
+                    }
+
+                   
         
                 })
         

@@ -11,10 +11,15 @@ myApp.controller("patientAppointmentController", ["$http", "$location", "baseURL
             myThis.doctors = response
         })
 
+        myThis.loader = true
+
 
         function getData() {
             service.getService("GET", "book_appointments").then((response) => {
                 myThis.appointments = response
+                myThis.loader = false
+
+
           
             })
            

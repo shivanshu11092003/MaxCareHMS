@@ -9,10 +9,16 @@ ng-controller="initiatedController as pendingAppointments" >
             Initiated Appointments</div>
     
         </div>
+        <div ng-show="pendingAppointments.loader" class="d-flex w-100 flex-row justify-content-center align-items-center min-vh-100 flex-wrap p-4">
+            <div class="spinner-border m-5" style="width: 3rem; height: 3rem;" role="status">
+                <span class="visually-hidden">Loading...</span>
+              </div>
+        </div>
+    
 
-        <div class="d-flex w-100 flex-row justify-content-start align-items-start flex-wrap p-4">
+        <div ng-show="!pendingAppointments.loader" class="d-flex w-100 flex-row justify-content-start align-items-start flex-wrap p-4">
 
-            <div class="d-flex border rounded-3 m-1  shadow-sm bg-light" style="width: 19rem;height: 18.5rem;"
+            <div class="d-flex border rounded-3 m-1  shadow-sm bg-light" 
                 ng-repeat="item in pendingAppointments.appointments track by $index">
                 <div class="d-flex flex-column p-2 w-100">
                     <div class="d-flex align-items-center justify-content-between p-1">

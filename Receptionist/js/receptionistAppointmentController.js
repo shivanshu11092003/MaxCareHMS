@@ -1,10 +1,15 @@
 myApp.controller("receptionistAppointmentController", ["service",
    function (service) {
 
+    const myThis = this
+
+    myThis.loader = true
 
 
 
   service.getService("GET", "analytics").then((response) => {
+    myThis.loader = false
+
 
      //Bar
      google.charts.load('current', { 'packages': ['corechart'] });
