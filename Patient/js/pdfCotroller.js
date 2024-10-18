@@ -32,6 +32,9 @@ myApp.controller("pdfController", ["$http", "$location", "$stateParams", "baseUR
 
         myThis.medicineArray = []
 
+        myThis.loader = true
+
+
         function getAppointmentData() {
 
             var getPrescription = {
@@ -42,6 +45,8 @@ myApp.controller("pdfController", ["$http", "$location", "$stateParams", "baseUR
             $http(getPrescription).then((response) => {
                 console.log(response.data)
                 myThis.medicineArray = response.data
+                myThis.loader = false
+
 
 
             })

@@ -27,6 +27,41 @@ myApp.controller("drprescriptionController", ["$http","$stateParams","baseURL",
 
     }
     getAppointmentData();
+
+    myThis.sentMail = function(){
+
+        const statusUpdateRequest = {
+            method:"PUT",
+            url: `https://${baseURL.ip}:8000/maxcare_patient/book_appointments/`,
+            data:{
+                id:appointmentID,
+                updated_status:"Prescribed",
+
+            },
+            withCredentials:true
+
+        }
+        $http(statusUpdateRequest).then((response) => {
+            if(response.status == 200){
+                myThis.loader = false
+
+                console.log(response.status)
+                getData();
+
+                Swal.fire({
+                    title: "Prescribed!",
+                    text: "Prescription is sent in the Mail!",
+                    icon: "success"
+                  });
+
+            }
+                   
+        
+                })
+        
+        
+
+    }
    
 
 

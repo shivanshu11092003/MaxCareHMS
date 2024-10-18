@@ -6,6 +6,7 @@ myApp.controller("patientAppointmentController", ["$http", "$location", "baseURL
         const myThis = this
 
 
+
         service.getService("GET", "info").then((response) => {
             console.log(response)
             myThis.doctors = response
@@ -18,12 +19,7 @@ myApp.controller("patientAppointmentController", ["$http", "$location", "baseURL
             service.getService("GET", "book_appointments").then((response) => {
                 myThis.appointments = response
                 myThis.loader = false
-
-
-          
             })
-           
-
         }
         getData();
 

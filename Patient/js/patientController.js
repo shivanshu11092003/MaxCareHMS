@@ -23,11 +23,16 @@ myApp.controller("patientController", ["$location","service",
         service.getService("GET", "signin").then((response) => {
             $location.url(response.route)
         })
+        function getPanel(){
+            service.getService("GET", "side_panel").then((response) => {
 
-        service.getService("GET", "side_panel").then((response) => {
+                myThis.sideNaviagtion = response
+            })
+            
+        }
+        getPanel()
 
-            myThis.sideNaviagtion = response
-        })
+       
 
 
 

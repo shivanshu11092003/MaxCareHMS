@@ -223,11 +223,12 @@ myApp.controller("registerController", ["$http", "$location", "baseURL","service
 
 
             } else {
-                 if(formData.get("height").match(nameRegex) == null){
+                 if(formData.get("height").match(heightRegex) == null){
                     Swal.fire({
                         title: "Height",
                         text: "must be a number",
                         icon: "error",
+                        confirmButtonColor: "#ff4136,"
                     });
     
                     requestPass = false

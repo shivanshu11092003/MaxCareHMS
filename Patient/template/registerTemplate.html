@@ -57,7 +57,7 @@
             <div class="form-floating  w-auto flex-fill p-1 ">
                 <select class="form-select" id="gender" name="gender"  required >
                     <option value="">Select</option>
-                    <option value="{{item}}" ng-repeat="item in register.genderArray track by $index">{{item}}</option>
+                    <option value="{{item[0]}}" ng-repeat="item in register.genderArray track by $index">{{item[1]}}</option>
 
               
 
@@ -69,7 +69,7 @@
             <div class="form-floating  w-auto flex-fill p-1 ">
                 <select class="form-select" id="maritalStatus" name="maritalStatus">
                     <option value="">Select </option>
-                    <option value="{{item}}" ng-repeat="item in register.maritalArray track by $index">{{item}}</option>
+                    <option value="{{item[0]}}" ng-repeat="item in register.maritalArray track by $index">{{item[1]}}</option>
 
 
                 </select>
@@ -115,7 +115,7 @@
             <div class="form-floating w-50 p-1">
                 <select class="form-select" id="bloodGroup" name="blood_Group" required >
                     <option value="">Select</option>
-                    <option value="{{item}}" ng-repeat="item in register.bloodArray track by $index">{{item}}</option>
+                    <option value="{{item[0]}}" ng-repeat="item in register.bloodArray track by $index">{{item[1]}}</option>
 
 
                 </select>
