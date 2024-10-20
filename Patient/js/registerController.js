@@ -81,11 +81,7 @@ myApp.controller("registerController", ["$http", "$location", "baseURL","service
 
             const fname = formDataObject.first_name
 
-            
-
-
-
-
+        
             if (fname == "" ) {
                     requestPass = false
                     myThis.first_name = "*required"
@@ -101,10 +97,11 @@ myApp.controller("registerController", ["$http", "$location", "baseURL","service
     
                     requestPass = false
                 }else{
-                    myThis.first_name = ""
+                 
 
                     requestPass = true
                 }
+                   myThis.first_name = ""
          
 
             }
@@ -118,10 +115,11 @@ myApp.controller("registerController", ["$http", "$location", "baseURL","service
                     requestPass = false
 
                 }else{
-                    myThis.last_name = ""
+                
 
                     requestPass = true
                 }
+                    myThis.last_name = ""
                     
 
 
@@ -141,10 +139,11 @@ myApp.controller("registerController", ["$http", "$location", "baseURL","service
                     requestPass = false
 
                 }else{
-                    myThis.email = ""
+               
 
                     requestPass = true
                 }
+               myThis.email = ""
 
             }
             else {
@@ -163,10 +162,10 @@ myApp.controller("registerController", ["$http", "$location", "baseURL","service
                     requestPass = false
 
                 }else{
-                    myThis.mobile = ""
-
+                  
                     requestPass = true
                 }
+                  myThis.mobile = ""
             } else {
                 myThis.mobile = "required"
                 requestPass = false
@@ -184,16 +183,16 @@ myApp.controller("registerController", ["$http", "$location", "baseURL","service
 
             }
 
-            if (formData.get("maritalStatus") == "") {
-                myThis.maritalStatus = "*required"
-                requestPass = false
+            // if (formData.get("maritalStatus") == "") {
+             
+            //     requestPass = true
 
 
-            } else {
-                myThis.maritalStatus = ""
-                requestPass = true
+            // } else {
+            //     myThis.maritalStatus = ""
+            //     requestPass = true
 
-            }
+            // }
 
 
             if (formData.get("dob") == "") {
@@ -233,9 +232,10 @@ myApp.controller("registerController", ["$http", "$location", "baseURL","service
     
                     requestPass = false
                 }else{
-                    myThis.height = ""
+              
                     requestPass = true
                 }
+                      myThis.height = ""
 
 
             }
@@ -316,7 +316,7 @@ myApp.controller("registerController", ["$http", "$location", "baseURL","service
 
 
             if (formData.get("passwd1") != "") {
-                if (formData.get("passwd1").match(passwordRegex)) {
+                if (formData.get("passwd1").match(passwordRegex)==null) {
                     Swal.fire({
                         title: "Password",
                         text: "contain lowercase,uppercase alphabet,a special character,number contain min 8 character",
@@ -367,16 +367,13 @@ myApp.controller("registerController", ["$http", "$location", "baseURL","service
                         "Content-Type": undefined
                     },
                     data: formData,
+                    withCredentials:true
                 }
 
                 $http(registerRequest).then((response) => {
-
-
                     if (response.status == 200) {
                         $location.url(response.data.route)
-
                     }
-
 
                 }).catch((e) => {
                     myThis.errorMsg = e.data.status

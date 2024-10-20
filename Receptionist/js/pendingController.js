@@ -6,8 +6,8 @@ myApp.controller("pendingAppointmentsController", ["$http","baseURL","service",
     myThis.loader = true
     function getData(){
         service.statusWiseData("GET","Pending").then((response=>{
-            console.log(response)
-            myThis.appointments = response.data
+            console.log(response.data.data)
+            myThis.appointments = response.data.data
             myThis.loader = false
 
         }))
@@ -71,7 +71,7 @@ myApp.controller("pendingAppointmentsController", ["$http","baseURL","service",
 
                     
                     if(response.status == 200){
-                        myThis.loader = true
+                        myThis.loader = false
                         console.log(response.status)
                         getData();
                         Swal.fire({
@@ -82,11 +82,7 @@ myApp.controller("pendingAppointmentsController", ["$http","baseURL","service",
 
                     }
 
-                   
-        
                 })
-        
-
     }
 
 }])

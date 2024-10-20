@@ -7,6 +7,7 @@ myApp.controller("receptionistAppointmentController", ["service",
 
 
 
+
   service.getService("GET", "analytics").then((response) => {
     myThis.loader = false
 

@@ -4,7 +4,10 @@ myApp.controller("receptionistController", ["$location","service",
     const myThis = this;
 
     service.getService("GET", "signin").then((response) => {
+        service.addState(response.route)
         $location.url(response.route)
+   
+
     })
 
 
@@ -16,8 +19,10 @@ myApp.controller("receptionistController", ["$location","service",
 
     myThis.logout = function () {
         service.getService("GET", "logout").then((response) => {
+            service.delState()
 
             $location.url(response.route)
+
 
         })
 

@@ -3,7 +3,7 @@
 myApp.controller("drprescriptionController", ["$http","$stateParams","baseURL",
      function ($http,$stateParams,baseURL) {
     const myThis = this
-
+    myThis.loader = true
  
     const appointmentID = $stateParams.id
     myThis.id = appointmentID
@@ -21,6 +21,7 @@ myApp.controller("drprescriptionController", ["$http","$stateParams","baseURL",
            $http(getPrescription).then((response) => {
             console.log(response.data)
             myThis.medicineArray = response.data
+            myThis.loader = false
     
     
         })

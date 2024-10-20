@@ -1,4 +1,4 @@
-<div class="d-flex flex-fill flex-column border shadow-sm justify-content-start min-vh-100 bg-white w-100"
+<div class="d-flex flex-fill flex-column border shadow-sm justify-content-start min-vh-100 bg-white w-100 rounded-4"
 ng-controller="drconfirmAppointmentsController as pendingAppointments" >
 
 
@@ -11,7 +11,16 @@ ng-controller="drconfirmAppointmentsController as pendingAppointments" >
         </div>
 
 
-        <div class="d-flex w-100 flex-row justify-content-center align-items-center flex-wrap p-4">
+        <div ng-show="pendingAppointments.loader" class="d-flex w-100 flex-row justify-content-center align-items-center min-vh-100 flex-wrap p-4">
+      
+          <div class="spinner-border m-5" style="width: 3rem; height: 3rem;" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+      </div>
+
+
+
+        <div ng-show="!pendingAppointments.loader" class="d-flex w-100 flex-row justify-content-center align-items-center flex-wrap p-4">
 
             <div  class="d-flex border rounded-3 m-1 align-items-center justify-content-center  shadow-sm bg-white w-100" style="text-decoration: none;" >
                 <table class="table">

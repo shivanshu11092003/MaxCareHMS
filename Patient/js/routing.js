@@ -1,8 +1,57 @@
 var myApp = angular.module("myApp", ["ui.router"]);
 
 myApp.constant("baseURL", {
-  ip: "10.21.96.29"
+  ip: "10.21.97.56"
 })
+
+myApp.service("service", ["$http", "baseURL", function ($http, baseURL) {
+
+  //Get
+  this.getService = function (requestMethod, apiName) {
+
+    var request = {
+      method: requestMethod,
+      url: `https://${baseURL.ip}:8000/maxcare_patient/${apiName}/`,
+      withCredentials:true
+
+    }
+    return $http(request).then((response) => {
+      return response.data
+    })
+
+  }
+  
+  //Get Data According to Status
+  this.statusWiseData = function(requestMethod,queryParameter){
+    var request ={
+      method:requestMethod,
+      url:`https://${baseURL.ip}:8000/maxcare_patient/book_appointments/?status=${queryParameter}`,
+      withCredentials:true
+
+    }
+    return $http(request).then((response) => {
+     
+      return response
+    }).catch((error)=>{
+      console.log(error);
+    })
+  }
+
+  //ls
+  this.addState = function(state){
+    localStorage.setItem("state",state);
+    const currrentState = localStorage.getItem("state");
+    console.log(currrentState)
+
+  }
+  this.delState = function(){
+    
+    localStorage.removeItem("state")
+
+  }
+
+}])
+
 myApp.config(function ($stateProvider, $urlRouterProvider) {
   var loginState = {
     name: "login",
@@ -205,40 +254,6 @@ myApp.config(function ($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise("/dashboard");
 })
 
-myApp.service("service", ["$http", "baseURL", function ($http, baseURL) {
-
-  //Get
-  this.getService = function (requestMethod, apiName) {
-
-    var request = {
-      method: requestMethod,
-      url: `https://${baseURL.ip}:8000/maxcare_patient/${apiName}/`,
-      withCredentials:true
-
-    }
-    return $http(request).then((response) => {
-      return response.data
-    })
-
-  }
-  
-  //Get Data According to Status
-  this.statusWiseData = function(requestMethod,queryParameter){
-    var request ={
-      method:requestMethod,
-      url:`https://${baseURL.ip}:8000/maxcare_patient/book_appointments/?status=${queryParameter}`,
-      withCredentials:true
-
-    }
-    return $http(request).then((response) => {
-     
-      return response
-    }).catch((error)=>{
-      console.log(error);
-    })
-  }
-
-}])
 
 
 myApp.controller("dashController", ["$http", "$location", "baseURL", "service",
