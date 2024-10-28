@@ -183,18 +183,6 @@ myApp.controller("registerController", ["$http", "$location", "baseURL","service
 
             }
 
-            // if (formData.get("maritalStatus") == "") {
-             
-            //     requestPass = true
-
-
-            // } else {
-            //     myThis.maritalStatus = ""
-            //     requestPass = true
-
-            // }
-
-
             if (formData.get("dob") == "") {
 
                 myThis.dob = "*required"

@@ -18,7 +18,6 @@ myApp.service("service", ["$http", "baseURL", function ($http, baseURL) {
     return $http(request).then((response) => {
       return response.data
     })
-
   }
   
   //Get Data According to Status
