@@ -1,7 +1,7 @@
 var myApp = angular.module("myApp", ["ui.router"]);
 
 myApp.constant("baseURL", {
-  ip: "10.21.97.56"
+  ip: "10.21.99.48"
 })
 
 myApp.service("service", ["$http", "baseURL", function ($http, baseURL) {
@@ -255,8 +255,8 @@ myApp.config(function ($stateProvider, $urlRouterProvider) {
 
 
 
-myApp.controller("dashController", ["$http", "$location", "baseURL", "service",
-  function ($http, $location, baseURL, service) {
+myApp.controller("dashController", ["$location", "baseURL", "service",
+  function ($location, baseURL, service) {
 
     service.getService("GET", "info").then((response) => {
       console.log(response)

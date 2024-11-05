@@ -8,10 +8,10 @@
                 <img src="../../hospital.png" class=" d-flex rounded mx-auto d-block mt-2"  height="30" width="30" alt="...">
                 <div class="d-flex bg-webbg text-danger rounded-4 flex-fill fs-3 h5 mt-3 p-2 w-100">MAX&nbsp;CARE</div>    
                 <div class="d-flex bg-webbg ms-5 me-3 w-auto"  >
-                    <button type="submit" class="btn w-auto mt-2 px-3" ng-click="patient.hide()" ng-show="patient.SideNaviagtionbtn">
+                    <!-- <button type="submit" class="btn w-auto mt-2 px-3">
                         <i class="bi bi-list d-flex"></i>
                     </button>
-    
+     -->
          
                 </div> 
             </div>
@@ -25,6 +25,30 @@
         </div>
 
     </div>
+
+
+    <div class="offcanvas offcanvas-start" data-bs-backdrop="static" tabindex="-1" id="staticBackdrop" aria-labelledby="staticBackdropLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="staticBackdropLabel">
+            <div class="d-flex align-items-center mx-2 w-100">
+                <img src="../../hospital.png" class=" d-flex rounded mx-auto d-block mt-2"  height="30" width="30" alt="...">
+                <div class="d-flex bg-webbg text-danger rounded-4 flex-fill fs-3 h5 mt-3 p-2 w-100">MAX&nbsp;CARE</div>     
+            </div>
+          </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <div>
+            <div class="d-flex flex-column w-100">
+                <div class="d-flex bg-webbg text-black fs-6 h5 p-2 rounded-2 w-100 ">Main</div>
+                <div ui-sref="{{item.url}}"  data-bs-dismiss="offcanvas" aria-label="Close" ng-repeat="item in patient.sideNaviagtion track by $index" class="d-flex bg-webbg align-items-center text-body-secondary h6 p-2 w-100 clear-fix  "><i class="{{item.icon}}" style="font-size: 1.5rem;"></i>&nbsp;{{item.name}}</div>
+                <div ng-click="patient.logout()" class="d-flex bg-webbg align-items-center text-body-secondary h6 p-2 w-100 clear-fix  "><i class="bi bi-box-arrow-right" style="font-size: 1.5rem;"></i>&nbsp;Log out</div>
+        
+        
+               </div>
+          </div>
+        </div>
+      </div>  
 
     <div ui-view="" class="d-flex  flex-column  align-items-start justify-content-start bg-light w-100 min-vh-100 m-2 rounded-3">
 

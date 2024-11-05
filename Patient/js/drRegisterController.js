@@ -1,11 +1,20 @@
 
 
-myApp.controller("drRegisterController", ["$http", "$location","baseURL",
-     function ($http, $location,baseURL) {
+myApp.controller("drRegisterController", ["$http", "$location","baseURL","service",
+     function ($http, $location,baseURL,service) {
 
-    const myThis = this
+    const myThis = this 
+
+    service.getService("GET","register_doctor").then((response)=>{
+        myThis.degree = response.degree
+        
+
+    })
+
+
 
     myThis.register = function(){
+        
 
         const form = document.getElementById("form")
 
@@ -192,24 +201,28 @@ myApp.controller("drRegisterController", ["$http", "$location","baseURL",
 
     }
 
-    myThis.specializationArray = [
-        "General Practitioner",
-        "Pediatrician",
-        "Cardiologist",
-        "Dermatologist",
-        "Neurologist",
-        "Orthopedic Surgeon",
-        "Gynecologist",
-        "Oncologist",
-        "Psychiatrist",
-        "Endocrinologist",
-        "Anesthesiologist",
-        "Radiologist",
-        "Ophthalmologist",
-        "Gastroenterologist"
-    ];
+ 
+    myThis.getSpecialization = function(){
+        
+ 
+        console.log(myThis.degree)
+        const item = myThis.degreeValue
 
-    myThis.degree = ["MD", "DO", "MBBS", "DMD", "DDS", "PharmD", "DNP", "PsyD", "PhD"];
+      var request = {
+        method: "GET",
+        url: `https://${baseURL.ip}:8000/maxcare_patient/register_doctor/?degree=${item}`,
+
+  
+      }
+      $http(request).then((response) => {
+         console.log(response.data.specialization)
+         myThis.specializationArray = response.data.specialization
+      })
+    }
+
+
+
+
 
     myThis.redirect = function () {
         $location.url("/login")

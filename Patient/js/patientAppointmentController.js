@@ -1,7 +1,7 @@
 
 
-myApp.controller("patientAppointmentController", ["$http", "$location", "baseURL", "service",
-    function ($http, $location, baseURL, service) {
+myApp.controller("patientAppointmentController", ["$http", "baseURL", "service",
+    function ($http, baseURL, service) {
 
         const myThis = this
 
@@ -17,7 +17,17 @@ myApp.controller("patientAppointmentController", ["$http", "$location", "baseURL
 
         function getData() {
             service.getService("GET", "book_appointments").then((response) => {
+                response.forEach((item)=>{
+                 
+                    if(item.status == "Request Initiated"){
+                        item.btn_class = "btn-danger"
+                    }
+                    else{
+                        item.btn_class = "d-none"
+                    }
+                })
                 myThis.appointments = response
+
                 myThis.loader = false
             })
         }

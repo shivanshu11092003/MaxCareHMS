@@ -54,24 +54,21 @@
         </div>
         <div class="d-flex flex-row justify-content-between mt-1 w-100 px-2">
             <div class="form-floating w-50 p-1">
-                <select class="form-select" id="degree" name="degree">
-                    <option value="">Select </option>
-                    <option value="{{item}}" ng-repeat="item in drRegister.degree track by $index">{{item}}</option>
-
-
-                </select>
+                <select class="form-select" id="degree" name="degree"  ng-model="drRegister.degreeValue" ng-init="drRegister.degreeValue ='select'" ng-init="drRegister.degree='select'" ng-options = " item for item  in drRegister.degree" ng-change="drRegister.getSpecialization()">    </select>
+              
+                
                 <label for="degree">Degree</label>
 
             </div>
             <div class="form-floating w-50 p-1">
                 <select class="form-select" id="specialization" name="specialization">
                     <option value="">Select </option>
-                    <option value="{{item}}" ng-repeat="item in drRegister.specializationArray track by $index">{{item}}
+                    <option value="{{item.id}}" ng-repeat="item in drRegister.specializationArray track by $index">{{item.speciality}}
                     </option>
 
 
                 </select>
-                <label for="prv_medissue">Specialization</label>
+                <label for="">Specialization</label>
                 <div class="text-danger" ng-show="drRegister.prv_medissue">Put valid issue</div>
 
             </div>
