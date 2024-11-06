@@ -1,7 +1,7 @@
 var myApp = angular.module("myApp", ["ui.router"]);
 
 myApp.constant("baseURL", {
-  ip: "10.21.99.48"
+  ip: "10.21.97.11"
 })
 
 myApp.service("service", ["$http", "baseURL", function ($http, baseURL) {
