@@ -3,7 +3,7 @@ ng-controller="drpendingAppointmentsController as pendingAppointments" >
 
 
 
-    <div class="d-flex flex-row  align-items-start justify-content-start w-100 p-3"> 
+    <div class="d-flex flex-row  align-items-start justify-content-start w-auto p-3"> 
         <div class="d-flex w-100 bg-webbg  rounded-4 text-danger fs-5 h5 mt-3 px-3" data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop" aria-controls="staticBackdrop">
             <i class="bi bi-list d-flex d-md-none m-1"></i>
             Pending Appointments </div>
@@ -18,53 +18,11 @@ ng-controller="drpendingAppointmentsController as pendingAppointments" >
         </div>
 
 
-    <div ng-show="!pendingAppointments.loader" class="d-flex w-100 flex-row justify-content-start align-items-start flex-wrap p-4">
-
-        <!-- <div class="d-flex border rounded-3 m-1 p-2  shadow-sm bg-light" style="width: 19rem;height: 19.5rem;"
-            ng-repeat="item in pendingAppointments.appointments track by $index">
-            <div class="d-flex flex-column p-2 w-100">
-                <div class="d-flex align-items-center justify-content-between p-1">
-                    <div class="card-title fs-6 text-body-secondary ">
-                        Appointment {{item.id}}<div class="text-success fs-5"> {{item.prefered_date}}</div>
-                    </div>
-                    <div class="d-flex align-items-center text-black ">
-                        <select class="form-select" id="status" name="status"
-                            ng-model="pendingAppointments.status[$index]"
-                            ng-click="pendingAppointments.update($index,item.id)">
-                            <option value="">{{item.status}}</option>
-                            <option value="Confirmed">Confirm</option>
-                            <option value="Refunded">Reject</option>
-
-                        </select>
-
-                    </div>
-                </div>
-
-                <div class="d-flex align-items-center text-black mt-3 p-1 h5 fs-6">Patient Name:&nbsp;<div
-                        class="text-body-secondary fs-6">{{item.patient__first_name}} {{item.patient__last_name}}</div>
-                </div>
-                <div class="d-flex align-items-center text-black mt-3 p-1 h5 fs-6">Symptoms:&nbsp;<div
-                        class="text-body-secondary fs-6">{{item.symptoms}}</div>
-                </div>
-
-                <div class="d-flex align-items-center text-black p-1">Status:<div
-                        class="text-success-emphasis font-weight-bold fs-6">&nbsp;{{item.status}}</div>
-                </div>
-
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="remark" ng-model="pendingAppointments.feedBack[$index]" value="NA" aria-label="Username" aria-describedby="basic-addon1">
-                    </div>
-      
-
-            </div>
-
-            
-        </div> -->
-
-        <table class="table">
+    <div ng-show="!pendingAppointments.loader" class="d-flex w-auto flex-row justify-content-start align-items-start flex-wrap p-4">
+      <table class="table">
             <thead>
               <tr class="bg-light">
-                <th scope="col" class="bg-light">Appointment Date</th>
+                <th scope="col" class="bg-light"> Date</th>
                 <th scope="col" class="bg-light">Patient Name</th>
 
                 <th scope="col" class="bg-light">Symptoms</th>

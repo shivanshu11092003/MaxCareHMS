@@ -17,14 +17,14 @@ ng-controller="prescribedAppointmentsController as pendingAppointments" >
       </div>
 
 
-        <div ng-show="!pendingAppointments.loader" class="d-flex w-100 flex-row justify-content-center align-items-center flex-wrap p-4">
+        <div ng-show="!pendingAppointments.loader" class="d-flex w-auto flex-row justify-content-center align-items-center flex-wrap p-4">
 
-            <div  class="d-flex border rounded-3 m-1 align-items-center justify-content-center  shadow-sm bg-light w-100"  >
+            <div  class="d-flex border rounded-3 m-1 align-items-center justify-content-center  shadow-sm bg-light w-auto"  >
                 <table class="table">
                     <thead>
                       <tr class="bg-light">
                         <th scope="col" class="bg-light">Appointment ID</th>
-                        <th scope="col" class="bg-light">Appointment Date</th>
+                        <th scope="col" class="bg-light"> Date</th>
                         <th scope="col" class="bg-light">Patient Name</th>
                         <th scope="col" class="bg-light">Symptoms</th>
                         <th scope="col" class="bg-light">Status</th>
